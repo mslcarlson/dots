@@ -1,0 +1,182 @@
+" better safe than sorry
+set nocompatible
+
+" xdg base directory support
+set runtimepath^=${XDG_CONFIG_HOME}/vim
+set runtimepath+=${XDG_DATA_HOME}/vim
+set runtimepath+=${XDG_CONFIG_HOME}/vim/after
+set packpath^=${XDG_DATA_HOME}/vim,${XDG_CONFIG_HOME}/vim
+set packpath+=${XDG_CONFIG_HOME}/vim/after,${XDG_DATA_HOME}/vim/after
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+call mkdir($XDG_DATA_HOME."/vim/spell", 'p')
+set viewdir=${XDG_DATA_HOME}/vim/view      | call mkdir(&viewdir, 'p')
+set backupdir=${XDG_CACHE_HOME}/vim/backup | call mkdir(&backupdir, 'p')
+set directory=${XDG_CACHE_HOME}/vim/swap   | call mkdir(&directory, 'p')
+set undodir=${XDG_CACHE_HOME}/vim/undo     | call mkdir(&undodir,   'p')
+if !has('nvim') | set viminfofile=${XDG_CACHE_HOME}/vim/viminfo | endif
+
+" enable detection, plugin, and indent
+filetype plugin indent on
+
+" vim-plug: a minimalist vim plugin manager
+call plug#begin('~/.config/vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'cormacrelf/vim-colors-github'
+call plug#end()
+
+" proper colors in st
+set t_Co=256
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" enable github color scheme (dark)
+let g:github_colors_soft = 1
+set background=dark
+let g:github_colors_block_diffmark = 0
+colorscheme github
+
+" enable github color scheme for airline
+let g:airline_theme = "github"
+let g:lightline = { 'colorscheme': 'github' }
+
+" transparent background if compositor is running
+autocmd vimenter * hi Normal       guibg=NONE ctermbg=NONE
+autocmd vimenter * hi LineNr       guibg=NONE ctermbg=NONE
+autocmd vimenter * hi NonText      guibg=NONE ctermbg=NONE
+autocmd vimenter * hi EndOfBuffer  guibg=NONE ctermbg=NONE
+autocmd vimenter * hi Folded       guibg=NONE ctermbg=NONE
+autocmd vimenter * hi FoldColumn   guibg=NONE ctermbg=NONE
+autocmd vimenter * hi SpecialKey   guibg=NONE ctermbg=NONE
+autocmd vimenter * hi CursorLineNr guibg=NONE ctermbg=NONE
+
+" highlight current line and bold current line number
+set cursorline
+hi CursorLineNR cterm=bold
+
+" remove chars from split bar
+highlight VertSplit cterm=NONE
+
+" recognize syntax
+syntax on
+
+" useful information to display by default
+set laststatus=2
+set title
+set ruler
+set showcmd
+set cmdheight=1
+
+" relative line numbers
+set number relativenumber
+
+" use system clipboard
+set clipboard+=unnamedplus
+
+" fix backspace not working in insert mode
+set backspace=indent,eol,start
+
+" better searching
+set incsearch
+set hlsearch
+set ignorecase smartcase
+
+" utf-8 encoding without bom
+set encoding=utf-8 nobomb
+
+" use english (us) for spell checker
+set spelllang=en_us
+
+" tabs
+set tabstop=4
+set softtabstop=4
+set expandtab
+
+" wild menu
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.o
+
+" show matching brackets/parentheses
+set showmatch
+
+" make splits open to the right
+set splitbelow splitright
+
+" auto indent on new line
+set autoindent
+
+" unsaved work that's not on screen
+set hidden
+
+" disable annoying swap file
+set noswapfile
+
+" disable backups
+set nobackup
+set nowritebackup
+
+" increase history and undo levels
+set history=10000
+set undolevels=10000
+
+" read file if changed outside vim
+set autoread
+
+" disable modeline support
+set nomodeline
+
+" remove trailing whitespace on save/exit
+autocmd BufWritePre * %s/\s\+$//e
+
+" disable auto-commenting behaviour
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" regular expressions
+set magic
+
+" default file systems
+set ffs=unix,dos,mac
+
+" keep current line in middle of screen when navigating up/down
+set scrolloff=1215752191
+
+" some settings to improve performance
+set lazyredraw
+set ttyfast
+set complete-=i
+
+" enable mouse support in vim
+set mouse=a
+
+" set leader key to accessible Space
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" redo to just r
+nnoremap r <C-R>
+
+" faster save and quit
+nnoremap <leader>s :w!<CR>
+nnoremap <leader>q :q!<CR>
+
+" replace all
+nnoremap <leader>r :%s//g<Left><Left>
+
+" spell checker
+map <leader>ss :setlocal spell!<cr>
+
+" navigate between splits using shift+hjkl
+nnoremap <S-h> <C-w>h
+nnoremap <S-j> <C-w>j
+nnoremap <S-k> <C-w>k
+nnoremap <S-l> <C-w>l
+
+" resize splits using shift+arrows
+noremap <S-Left> :vertical resize +1<CR>
+noremap <S-Right> :vertical resize -1<CR>
+noremap <S-Up> :resize +1<CR>
+noremap <S-Down> :resize -1<CR>
+
+" remove highlight from searched text
+nnoremap <CR> :noh<CR><CR>

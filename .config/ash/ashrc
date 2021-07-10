@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# ashrc
+
+# aliasrc
+[ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc"
+
+# functionrc
+[ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/functionrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/functionrc"

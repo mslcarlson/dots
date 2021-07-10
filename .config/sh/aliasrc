@@ -1,0 +1,71 @@
+#!/bin/sh
+#
+# aliasrc
+
+# unix commands
+alias \
+    bc='bc -lq'     					                 \
+    cp='cp -iv'     					                 \
+    df='df -hT'     					                 \
+    diff='diff --color=auto'                             \
+    du='du -h'                  			             \
+    echo='echo -en'             			             \
+    egrep='egrep --color=auto'				             \
+    fgrep='fgrep --color=auto'				             \
+    grep='grep --color=auto'                             \
+    ls='ls -ahls --color=auto --group-directories-first' \
+    mkdir='mkdir -p'                                     \
+    more='less'                 			             \
+    mv='mv -iv'                 			             \
+    rmdir='rmdir -pv'           			             \
+    vi='vim'
+
+# gnu/linux
+alias \
+     free='free -m'
+
+# startx
+[ -f "${XINITRC}" ] && alias startx="startx ${XINITRC}"
+
+# directories
+alias \
+     ...='cd ../../'             \
+     ....='cd ../../../'         \
+     .....='cd ../../../../'     \
+     ......='cd ../../../../../'
+
+# git
+alias \
+     ga='git add'                  \
+     gb='git branch'               \
+     gba='git branch -a'           \
+     gbv='git branch -v'           \
+     gca='git commit --amend'      \
+     gch='git checkout $@'         \
+     gcm='git commit -m'           \
+     gd='git diff'                 \
+     gdc='git diff --cached'       \
+     gf='git fetch'                \
+     gp='git push'                 \
+     gpl='git pull'                \
+     gplo='git pull origin'        \
+     gpo='git push origin'         \
+     gpom='git push origin master' \
+     gr='git rebase'               \
+     gs='git status'               \
+     gst='git stash'               \
+     gsta='git stash apply'        \
+     gstc='git stash clear'        \
+     gstl='git stash list'         \
+     gstp='git stash pop'
+
+# dotfiles
+alias dots="/usr/bin/git --git-dir=${HOME}/.dots/ --work-tree=${HOME}"
+
+# youtube
+alias \
+     yt="youtube-dl -i -o \"${DOWNLOADS_DIR}/%(uploader)s/%(title)s.%(ext)s\" --add-metadata"                     \
+     yta='yt -f bestaudio/best -x'                                                                                \
+     ytp="youtube-dl -i -o \"${DOWNLOADS_DIR}/%(uploader)s/%(playlist_index)s-%(title)s.%(ext)s\" --add-metadata" \
+     ytpa='ytp -f bestaudio/best -x'                                                                              \
+     ytall='yt -cw -f best'

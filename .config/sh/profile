@@ -1,0 +1,75 @@
+#!/bin/sh
+#
+# profile
+
+# kiss linux path for repos
+export KISS_PATH=''
+KISS_PATH="${KISS_PATH}:${HOME}/repos/repo/core/"
+KISS_PATH="${KISS_PATH}:${HOME}/repos/repo/extra/"
+KISS_PATH="${KISS_PATH}:${HOME}/repos/repo/xorg/"
+KISS_PATH="${KISS_PATH}:${HOME}/repos/community/community/"
+KISS_PATH="${KISS_PATH}:${HOME}/repos/bin/bin/"
+
+# add local scripts to path
+export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+
+# programs
+export WM='dwm'
+export STATUS_BAR='dwmblocks'
+export BROWSER='firefox'
+export TERMINAL='st'
+export FILE_VIEWER='shfm'
+export EDITOR='vim'
+export MUSIC_PLAYER='cmus'
+export MAIL_CLIENT='mutt'
+export MEDIA_PLAYER='mpv'
+export READER='zathura'
+export IMG_VIEWER='feh'
+
+# xdg base directories
+export XDG_CONFIG_HOME="${HOME}/.config/"
+export XDG_DATA_HOME="${HOME}/.local/share/"
+export XDG_CACHE_HOME="${HOME}/.cache/"
+export XDG_STATE_HOME="${HOME}/.local/state/"
+
+# xdg base directory support
+export XINITRC="${XDG_CONFIG_HOME:-${HOME}/.config}/x/xinitrc"
+export VIMINIT="source ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
+export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/share}/gnupg/"
+export ENV="${XDG_CONFIG_HOME:-${HOME}/.config}/ash/ashrc"
+export HISTFILE=''
+
+# folders
+export DEV_DIR="${HOME}/dev/"
+export DOWNLOADS_DIR="${HOME}/dl/"
+export DOCUMENTS_DIR="${HOME}/dox/"
+export MAIL_DIR="${HOME}/mail/"
+export MUSIC_DIR="${HOME}/music/"
+export PICTURES_DIR="${HOME}/pix/"
+export VIDEOS_DIR="${HOME}/vids/"
+
+# gpg
+export GNUPG="9CC4E75365C16465FFE752C94DDBF97211D4EA31"
+
+# colorful man pages
+export LESS_TERMCAP_mb=$'\e[01;31m'
+export LESS_TERMCAP_md=$'\e[01;38;5;74m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[38;5;246m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[04;38;5;146m'
+
+# shfm opener
+export SHFM_OPENER="${HOME}/.local/bin/shfm.sh"
+
+# pash
+export PASH_KEYID="${GNUPG}"
+export PASH_LENGTH=16
+export PASH_PATTERN=_A-Z-a-z-0-9
+export PASH_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/pash/"
+export PASH_CLIP='xclip -sel c'
+export PASH_TIMEOUT=60
+
+# startx
+[ -z "${DISPLAY}" ] && [ "$(tty)" = /dev/tty1 ] && ssh-agent startx "${XINITRC}" &> /dev/null

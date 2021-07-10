@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# xresources
+
+feh --no-fehbg --bg-scale "${HOME}/pix/wp/out-of-this-world.jpg"
+xrdb "${XDG_CONFIG_HOME:-${HOME}/.config}/x/xresources"

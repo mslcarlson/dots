@@ -1,0 +1,39 @@
+[Default Applications]
+
+# application
+application/epub+zip=doc.desktop
+application/json=txt.desktop
+application/pdf=doc.desktop
+application/x-tex=txt.desktop
+
+# audio
+audio/flac=audio.desktop
+audio/m4a=audio.desktop
+audio/mp3=audio.desktop
+audio/ogg=audio.desktop
+audio/wav=audio.desktop
+audio/x-m4a=audio.desktop
+audio/x-wav=audio.desktop
+
+# image
+image/gif=gif.desktop
+image/jpeg=img.desktop
+image/png=img.desktop
+image/vnd.djvu=doc.desktop
+image/webp=img.desktop
+image/x-targa=img.desktop
+image/x-tga=img.desktop
+
+# text
+text/css=txt.desktop
+text/csv=txt.desktop
+text/html=web.desktop
+text/javascript=txt.desktop
+text/plain=txt.desktop
+text/x-shellscript=txt.desktop
+
+# video
+video/mp4=vid.desktop
+video/webm=vid.desktop
+video/x-matroska=vid.desktop
+video/x-msvideo=vid.desktop
