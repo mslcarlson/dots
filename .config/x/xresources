@@ -1,20 +1,38 @@
 ! colors
-#define  col0 #282828
-#define  col1 #cc241d
-#define  col2 #98971a
-#define  col3 #d79921
-#define  col4 #458588
-#define  col5 #b16286
-#define  col6 #689d6a
-#define  col7 #a89984
-#define  col8 #928374
-#define  col9 #fb4934
-#define col10 #b8bb26
-#define col11 #fabd2f
-#define col12 #83a598
-#define col13 #d3869b
-#define col14 #8ec07c
-#define col15 #ebdbb2
+! #define  col0 #282828
+! #define  col1 #cc241d
+! #define  col2 #98971a
+! #define  col3 #d79921
+! #define  col4 #458588
+! #define  col5 #b16286
+! #define  col6 #689d6a
+! #define  col7 #a89984
+! #define  col8 #928374
+! #define  col9 #fb4934
+! #define col10 #b8bb26
+! #define col11 #fabd2f
+! #define col12 #83a598
+! #define col13 #d3869b
+! #define col14 #8ec07c
+! #define col15 #ebdbb2
+
+! colors
+#define  col0 #1b1d1e
+#define  col1 #ff0044
+#define  col2 #82b414
+#define  col3 #fd971f
+#define  col4 #266c98
+#define  col5 #ac0cb1
+#define  col6 #ae81ff
+#define  col7 #cccccc
+#define  col8 #808080
+#define  col9 #f92672
+#define col10 #a6e22e
+#define col11 #e6db74
+#define col12 #7070f0
+#define col13 #d63ae1
+#define col14 #66d9ef
+#define col15 #f8f8f2
 
 ! dwm
 dwm.font            : monospace:size=18

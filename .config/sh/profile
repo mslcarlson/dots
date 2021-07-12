@@ -16,6 +16,7 @@ export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's
 # programs
 export WM='dwm'
 export STATUS_BAR='dwmblocks'
+export MENU='dmenu_run -c -l 10'
 export BROWSER='firefox'
 export TERMINAL='st'
 export FILE_VIEWER='shfm'
