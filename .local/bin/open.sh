@@ -1,6 +1,6 @@
 #!/bin/sh -e
 #
-# shfm
+# open
 
 case "${1}" in
     # audio

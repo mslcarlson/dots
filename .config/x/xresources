@@ -88,6 +88,16 @@ herbe.pos_y            : 42
 herbe.corner           : 3
 herbe.duration         : 5
 
+! slock
+slock.init        : col0
+slock.input       : col4
+slock.failed      : col1
+slock.caps        : col9
+slock.failonclear : 1
+slock.message     : Type password to unlock
+slock.text_color  : col7
+slock.font_name   : monospace:size=18
+
 ! st
 st.font               : monospace:size=18
 st.font2              : monospace:size=18

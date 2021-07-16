@@ -1,6 +1,8 @@
 #!/bin/sh
 #
-# ashrc
+# mkshrc
+
+export PS1=$'\033[1;34m${PWD} $ \033[0;37m'
 
 # aliasrc
 [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc"

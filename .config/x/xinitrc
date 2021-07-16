@@ -4,4 +4,4 @@
 
 . "${XDG_CONFIG_HOME:-${HOME}/.config}/x/xprofile"
 
-${HOME}/.local/bin/dwm.sh
+"${WM}" >/dev/null 2>&1

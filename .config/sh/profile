@@ -37,8 +37,9 @@ export XDG_STATE_HOME="${HOME}/.local/state/"
 export XINITRC="${XDG_CONFIG_HOME:-${HOME}/.config}/x/xinitrc"
 export VIMINIT="source ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
 export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/share}/gnupg/"
-export ENV="${XDG_CONFIG_HOME:-${HOME}/.config}/ash/ashrc"
+export ENV="${XDG_CONFIG_HOME:-${HOME}/.config}/mksh/mkshrc"
 export HISTFILE=''
+export XAUTHORITY="${XDG_RUNTIME_DIR}/xauth"
 
 # folders
 export DEV_DIR="${HOME}/dev/"
@@ -50,6 +51,7 @@ export PICTURES_DIR="${HOME}/pix/"
 export VIDEOS_DIR="${HOME}/vids/"
 
 # gpg
+export GPG_TTY="$(tty)"
 export GNUPG="9CC4E75365C16465FFE752C94DDBF97211D4EA31"
 
 # colorful man pages
@@ -62,15 +64,18 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[04;38;5;146m'
 
 # shfm opener
-export SHFM_OPENER="${HOME}/.local/bin/shfm.sh"
+export SHFM_OPENER="${HOME}/.local/bin/open.sh"
 
 # pash
 export PASH_KEYID="${GNUPG}"
-export PASH_LENGTH=16
+export PASH_LENGTH=32
 export PASH_PATTERN=_A-Z-a-z-0-9
 export PASH_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/pash/"
 export PASH_CLIP='xclip -sel c'
 export PASH_TIMEOUT=60
+
+# clean up
+export LESSHISTFILE=-
 
 # startx
 [ -z "${DISPLAY}" ] && [ "$(tty)" = /dev/tty1 ] && ssh-agent startx "${XINITRC}" &> /dev/null
