@@ -2,7 +2,31 @@
 #
 # mkshrc
 
-export PS1=$'\033[1;34m${PWD} $ \033[0;37m'
+# tput
+COL0="$(tput setaf 0)"
+COL1="$(tput setaf 1)"
+COL2="$(tput setaf 2)"
+COL3="$(tput setaf 3)"
+COL4="$(tput setaf 4)"
+COL5="$(tput setaf 5)"
+COL6="$(tput setaf 6)"
+COL7="$(tput setaf 7)"
+COL8="$(tput setaf 8)"
+COL9="$(tput setaf 9)"
+COL10="$(tput setaf 10)"
+COL11="$(tput setaf 11)"
+COL12="$(tput setaf 12)"
+COL13="$(tput setaf 13)"
+COL14="$(tput setaf 14)"
+COL15="$(tput setaf 15)"
+BOLD="$(tput bold)"
+NORMAL="$(tput sgr0)"
+
+# prompt
+export PS1=$'${BOLD}${COL4}$(pwd) $ ${NORMAL}${COL7}'
+
+# gpg tty
+export GPG_TTY=$(tty)
 
 # aliasrc
 [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc"

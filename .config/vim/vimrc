@@ -62,16 +62,18 @@ syntax on
 
 " useful information to display by default
 set laststatus=2
-set title
 set ruler
 set showcmd
 set cmdheight=1
+
+" get rid of thanks for flying vim
+set notitle
 
 " relative line numbers
 set number relativenumber
 
 " use system clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 " fix backspace not working in insert mode
 set backspace=indent,eol,start

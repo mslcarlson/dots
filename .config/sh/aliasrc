@@ -59,7 +59,7 @@ alias \
      gstl='git stash list'         \
      gstp='git stash pop'
 
-# dotfiles
+# dots
 alias dots="/usr/bin/git --git-dir=${HOME}/.dots/ --work-tree=${HOME}"
 
 # youtube

@@ -1,6 +1,8 @@
 #!/bin/sh
 #
-# xresources
+# xprofile
 
-feh --no-fehbg --bg-scale "${HOME}/pix/wp/out-of-this-world.jpg"
+xrandr --output "DisplayPort-1" --mode "1920x1080" --rate "144" --primary
+xset r rate 250 50
+feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share}/wp"
 xrdb "${XDG_CONFIG_HOME:-${HOME}/.config}/x/xresources"
