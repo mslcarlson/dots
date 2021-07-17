@@ -1,4 +1,2 @@
 [Desktop Entry]
-Type=Application
-Name=Gif Viewer
 Exec=/usr/bin/mpv --loop %f

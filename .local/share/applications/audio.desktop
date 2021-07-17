@@ -1,4 +1,2 @@
 [Desktop Entry]
-Type=Application
-Name=Audio Player
 Exec=/usr/bin/mpv --no-video %f

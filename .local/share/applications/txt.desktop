@@ -1,4 +1,2 @@
 [Desktop Entry]
-Type=Application
-Name=Text Viewer
 Exec=/usr/bin/vim %f
