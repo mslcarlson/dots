@@ -3,5 +3,5 @@
 # functionrc
 
 f() { fff "${@}" && cd "$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/fff/.fff_d")" || exit ; }
-s() { du -a "${HOME}" | awk '{ $1="" } { gsub("^ ", "", $0); print "\047" $0 "\047" }' | fzf | xargs -or xdg-open ; }
+s() { du -a "${HOME}" | awk '{ $1="" } { gsub("^ ", "", $0); print "\"" $0 "\"" }' | fzf | xargs -or xdg-open ; }
 rands() { </dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head -c "${1}" ; echo ; }
