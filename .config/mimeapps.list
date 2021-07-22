@@ -10,6 +10,7 @@ application/x-tex=txt.desktop
 audio/flac=audio.desktop
 audio/m4a=audio.desktop
 audio/mp3=audio.desktop
+audio/mpegapplication/octet-stream=audio.desktop
 audio/ogg=audio.desktop
 audio/wav=audio.desktop
 audio/x-m4a=audio.desktop

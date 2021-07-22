@@ -35,8 +35,8 @@
 #define col15 #f8f8f2
 
 ! dwm
-dwm.font            : monospace:size=18
-dwm.font2           : monospace:size=18
+dwm.font            : monospace:size=16
+dwm.font2           : monospace:size=16
 dwm.normbgcolor     : col0
 dwm.normbordercolor : col7
 dwm.normfgcolor     : col7
@@ -64,7 +64,7 @@ dwm.ulinevoffset    : 0
 dwm.ulineall        : 0
 
 ! dmenu
-dmenu.font         : monospace:size=18
+dmenu.font         : monospace:size=16
 dmenu.normfgcolor  : col7
 dmenu.normbgcolor  : col0
 dmenu.selfgcolor   : col15
@@ -78,7 +78,7 @@ dmenu.border_width : 3
 herbe.background_color : col0
 herbe.border_color     : col4
 herbe.font_color       : col7
-herbe.font_pattern     : monospace:size=18
+herbe.font_pattern     : monospace:size=16
 herbe.line_spacing     : 5
 herbe.padding          : 5
 herbe.width            : 350
@@ -96,11 +96,11 @@ slock.caps        : col9
 slock.failonclear : 1
 slock.message     : Type password to unlock
 slock.text_color  : col7
-slock.font_name   : monospace:size=18
+slock.font_name   : monospace:size=16
 
 ! st
-st.font               : monospace:size=18
-st.font2              : monospace:size=18
+st.font               : monospace:size=16
+st.font2              : monospace:size=16
 st.color0             : col0
 st.color1             : col1
 st.color2             : col2

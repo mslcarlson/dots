@@ -25,7 +25,7 @@ alias \
      free='free -m'
 
 # startx
-[ -f "${XINITRC}" ] && alias startx="startx ${XINITRC}"
+[ -f "${XINITRC}" ] && alias startx='startx ${XINITRC}'
 
 # directories
 alias \
@@ -41,7 +41,7 @@ alias \
      gba='git branch -a'           \
      gbv='git branch -v'           \
      gca='git commit --amend'      \
-     gch='git checkout $@'         \
+     gch='git checkout'            \
      gcm='git commit -m'           \
      gd='git diff'                 \
      gdc='git diff --cached'       \
@@ -60,12 +60,12 @@ alias \
      gstp='git stash pop'
 
 # dots
-alias dots="/usr/bin/git --git-dir=${HOME}/.dots/ --work-tree=${HOME}"
+alias dots='/usr/bin/git --git-dir=${HOME}/.dots/ --work-tree=${HOME}'
 
 # youtube
 alias \
-     yt="youtube-dl -i -o \"${DOWNLOADS_DIR}/%(uploader)s/%(title)s.%(ext)s\" --add-metadata"                     \
+     yt='youtube-dl -i -o \"${DOWNLOADS_DIR}/%(uploader)s/%(title)s.%(ext)s\" --add-metadata'                     \
      yta='yt -f bestaudio/best -x'                                                                                \
-     ytp="youtube-dl -i -o \"${DOWNLOADS_DIR}/%(uploader)s/%(playlist_index)s-%(title)s.%(ext)s\" --add-metadata" \
+     ytp='youtube-dl -i -o \"${DOWNLOADS_DIR}/%(uploader)s/%(playlist_index)s-%(title)s.%(ext)s\" --add-metadata' \
      ytpa='ytp -f bestaudio/best -x'                                                                              \
      ytall='yt -cw -f best'

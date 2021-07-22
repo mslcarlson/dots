@@ -2,24 +2,18 @@
 #
 # profile
 
-# kiss linux path for repos
-export KISS_PATH=''
-KISS_PATH="${KISS_PATH}:${HOME}/repos/repo/core/"
-KISS_PATH="${KISS_PATH}:${HOME}/repos/repo/extra/"
-KISS_PATH="${KISS_PATH}:${HOME}/repos/repo/xorg/"
-KISS_PATH="${KISS_PATH}:${HOME}/repos/community/community/"
-KISS_PATH="${KISS_PATH}:${HOME}/repos/bin/bin/"
-
 # add local scripts to path
-export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH
 
 # programs
 export WM='dwm'
-export STATUS_BAR='dwmblocks'
+export BAR='dwmblocks'
 export MENU='dmenu_run -c -l 10'
+export LOCKER='slock'
 export BROWSER='firefox'
 export TERMINAL='st'
-export FILE_VIEWER='shfm'
+export FILE_VIEWER='fff'
 export EDITOR='vim'
 export MUSIC_PLAYER='cmus'
 export MAIL_CLIENT='neomutt'
@@ -53,16 +47,31 @@ export VIDEOS_DIR="${HOME}/vids/"
 export GNUPG="9CC4E75365C16465FFE752C94DDBF97211D4EA31"
 
 # colorful man pages
-export LESS_TERMCAP_mb=$'\e[01;31m'
-export LESS_TERMCAP_md=$'\e[01;38;5;74m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[38;5;246m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[04;38;5;146m'
+LESS_TERMCAP_mb="$(printf '\e[01;31m')"
+export LESS_TERMCAP_mb
+LESS_TERMCAP_md="$(printf '\e[01;38;5;74m')"
+export LESS_TERMCAP_md
+LESS_TERMCAP_me="$(printf '\e[0m')"
+export LESS_TERMCAP_me
+LESS_TERMCAP_se="$(printf '\e[0m')"
+export LESS_TERMCAP_se
+LESS_TERMCAP_so="$(printf '\e[38;5;246m')"
+export LESS_TERMCAP_so
+LESS_TERMCAP_ue="$(printf '\e[0m')"
+export LESS_TERMCAP_ue
+LESS_TERMCAP_us="$(printf '\e[04;38;5;146m')"
+export LESS_TERMCAP_us
 
-# shfm opener
-export SHFM_OPENER="${HOME}/.local/bin/open.sh"
+# file explorer
+export FFF_COL1=4
+export FFF_COL2=4
+export FFF_COL3=1
+export FFF_COL4=4
+export FFF_COL5=7
+export FFF_HIDDEN=1
+export FFF_LS_COLORS=1
+export FFF_OPENER="xdg-open"
+export FFF_STAT_CMD="stat"
 
 # pash
 export PASH_KEYID="${GNUPG}"
@@ -71,6 +80,11 @@ export PASH_PATTERN=_A-Z-a-z-0-9
 export PASH_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/pash/"
 export PASH_CLIP='xclip -sel c'
 export PASH_TIMEOUT=60
+
+# pfetch
+export HOSTNAME='pc'
+export PF_INFO='ascii title os host kernel uptime pkgs memory shell editor wm palette'
+export PF_COL1=4
 
 # clean up
 export LESSHISTFILE=-
