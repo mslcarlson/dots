@@ -26,11 +26,26 @@ case "${1}" in
     ;;
 
     # image
-    *.jpeg \
+    *.bmp  \
+  | *.dib  \
+  | *.ff   \
+  | *.gif  \
+  | *.ico  \
+  | *.iff  \
+  | *.jfi  \
+  | *.jfif \
+  | *.jif  \
+  | *.jpe  \
+  | *.jpeg \
   | *.jpg  \
+  | *.lbm  \
   | *.png  \
+  | *.pnm  \
   | *.tga  \
-  | *.webp)
+  | *.tif  \
+  | *.tiff \
+  | *.webp \
+  | *.xpm)
         "${IMG_VIEWER}" "${1}"
     ;;
 

@@ -17,13 +17,28 @@ audio/x-m4a=audio.desktop
 audio/x-wav=audio.desktop
 
 # image
+image/bmp=img.desktop
 image/gif=gif.desktop
 image/jpeg=img.desktop
+image/pjpeg=img.desktop
 image/png=img.desktop
+image/tiff-fx=img.desktop
+image/tiff=img.desktop
 image/vnd.djvu=doc.desktop
+image/vnd.microsoft.icon=img.desktop
 image/webp=img.desktop
+image/x-icon=img.desktop
+image/x-portable-anymap=img.desktop
+image/x-portable-bitmap=img.desktop
+image/x-portable-graymap=img.desktop
+image/x-portable-pixmap=img.desktop
 image/x-targa=img.desktop
 image/x-tga=img.desktop
+image/x-tiff=img.desktop
+image/x-windows-bmp=img.desktop
+image/x-xpixmap=img.desktop
+image/x-xpmi=img.desktop
+image/xpm=img.desktop
 
 # text
 text/css=txt.desktop
