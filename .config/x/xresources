@@ -1,45 +1,26 @@
 ! colors
-! #define  col0 #282828
-! #define  col1 #cc241d
-! #define  col2 #98971a
-! #define  col3 #d79921
-! #define  col4 #458588
-! #define  col5 #b16286
-! #define  col6 #689d6a
-! #define  col7 #a89984
-! #define  col8 #928374
-! #define  col9 #fb4934
-! #define col10 #b8bb26
-! #define col11 #fabd2f
-! #define col12 #83a598
-! #define col13 #d3869b
-! #define col14 #8ec07c
-! #define col15 #ebdbb2
-
-! colors
-#define  col0 #1b1d1e
-#define  col1 #ff0044
-#define  col2 #82b414
-#define  col3 #fd971f
-#define  col4 #266c98
-#define  col5 #ac0cb1
-#define  col6 #ae81ff
-#define  col7 #cccccc
-#define  col8 #808080
-#define  col9 #f92672
-#define col10 #a6e22e
-#define col11 #e6db74
-#define col12 #7070f0
-#define col13 #d63ae1
-#define col14 #66d9ef
+#define col0 #0f1317
+#define col1 #d99433
+#define col2 #3b3c82
+#define col3 #35538f
+#define col4 #465298
+#define col5 #49649e
+#define col6 #aabed4
+#define col7 #768594
+#define col8 #d99433
+#define col9 #d3b555
+#define col10 #3b3c82
+#define col11 #35538f
+#define col12 #465298
+#define col13 #49649e
+#define col14 #aabed4
 #define col15 #f8f8f2
 
 ! dwm
 dwm.font            : monospace:size=16
-dwm.font2           : monospace:size=16
 dwm.normbgcolor     : col0
-dwm.normbordercolor : col7
-dwm.normfgcolor     : col7
+dwm.normbordercolor : col0
+dwm.normfgcolor     : col6
 dwm.selbgcolor      : col4
 dwm.selbordercolor  : col4
 dwm.selfgcolor      : col15
@@ -65,7 +46,7 @@ dwm.ulineall        : 0
 
 ! dmenu
 dmenu.font         : monospace:size=16
-dmenu.normfgcolor  : col7
+dmenu.normfgcolor  : col6
 dmenu.normbgcolor  : col0
 dmenu.selfgcolor   : col15
 dmenu.selbgcolor   : col4
@@ -77,7 +58,7 @@ dmenu.border_width : 3
 ! herbe
 herbe.background_color : col0
 herbe.border_color     : col4
-herbe.font_color       : col7
+herbe.font_color       : col6
 herbe.font_pattern     : monospace:size=16
 herbe.line_spacing     : 5
 herbe.padding          : 5
@@ -95,12 +76,11 @@ slock.failed      : col1
 slock.caps        : col9
 slock.failonclear : 1
 slock.message     : Type password to unlock
-slock.text_color  : col7
+slock.text_color  : col6
 slock.font_name   : monospace:size=16
 
 ! st
 st.font               : monospace:size=16
-st.font2              : monospace:size=16
 st.color0             : col0
 st.color1             : col1
 st.color2             : col2
@@ -127,7 +107,7 @@ st.maxlatency         : 33
 st.blinktimeout       : 800
 st.bellvolume         : 0
 st.tabspaces          : 8
-st.borderpx           : 2
+st.borderpx           : 15
 st.cwscale            : 1.0
 st.chscale            : 1.0
 st.doubleclicktimeout : 300
