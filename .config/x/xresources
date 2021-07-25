@@ -1,29 +1,29 @@
 ! colors
-#define col0 #0f1317
-#define col1 #d99433
-#define col2 #3b3c82
-#define col3 #35538f
-#define col4 #465298
-#define col5 #49649e
-#define col6 #aabed4
-#define col7 #768594
-#define col8 #d99433
-#define col9 #d3b555
-#define col10 #3b3c82
-#define col11 #35538f
-#define col12 #465298
-#define col13 #49649e
-#define col14 #aabed4
-#define col15 #f8f8f2
+#define col0 #160f0c
+#define col1 #3844a1
+#define col2 #6b5f92
+#define col3 #506e83
+#define col4 #867497
+#define col5 #8b7dc3
+#define col6 #6e878d
+#define col7 #c6c0cb
+#define col8 #8a868e
+#define col9 #3844a1
+#define col10 #6b5f92
+#define col11 #506e83
+#define col12 #867497
+#define col13 #8b7dc3
+#define col14 #6e878d
+#define col15 #c6c0cb
 
 ! dwm
 dwm.font            : monospace:size=16
 dwm.normbgcolor     : col0
 dwm.normbordercolor : col0
-dwm.normfgcolor     : col6
-dwm.selbgcolor      : col4
-dwm.selbordercolor  : col4
-dwm.selfgcolor      : col15
+dwm.normfgcolor     : col7
+dwm.selbgcolor      : col2
+dwm.selbordercolor  : col2
+dwm.selfgcolor      : col7
 dwm.borderpx        : 3
 dwm.snap            : 32
 dwm.topbar          : 0
@@ -46,10 +46,10 @@ dwm.ulineall        : 0
 
 ! dmenu
 dmenu.font         : monospace:size=16
-dmenu.normfgcolor  : col6
+dmenu.normfgcolor  : col7
 dmenu.normbgcolor  : col0
-dmenu.selfgcolor   : col15
-dmenu.selbgcolor   : col4
+dmenu.selfgcolor   : col7
+dmenu.selbgcolor   : col2
 dmenu.prompt       :
 dmenu.min_width    : 500
 dmenu.colorprompt  : 1
@@ -57,8 +57,8 @@ dmenu.border_width : 3
 
 ! herbe
 herbe.background_color : col0
-herbe.border_color     : col4
-herbe.font_color       : col6
+herbe.border_color     : col2
+herbe.font_color       : col7
 herbe.font_pattern     : monospace:size=16
 herbe.line_spacing     : 5
 herbe.padding          : 5
@@ -73,10 +73,10 @@ herbe.duration         : 5
 slock.init        : col0
 slock.input       : col4
 slock.failed      : col1
-slock.caps        : col9
+slock.caps        : col2
 slock.failonclear : 1
 slock.message     : Type password to unlock
-slock.text_color  : col6
+slock.text_color  : col7
 slock.font_name   : monospace:size=16
 
 ! st

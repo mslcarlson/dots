@@ -35,30 +35,25 @@ bind index,pager \Ck sidebar-prev
 bind index,pager \Co sidebar-open
 
 # color
-color attachment        bold color6  default
-color body              bold color14 default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"
-color body              bold color14 default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"
+color attachment        bold color2  default
+color body              bold color2  default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"
+color body              bold color2  default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"
 color error             bold color1  default
-color hdrdefault        bold color4  default
-color index_date             color4  default
-color index_number           color4  default
-color index_size             color4  default
-color indicator         bold default color4
-color markers                color4  default
-color normal                 color6  default
-color quoted                 color4  default
-color quoted1                color37 default
-color quoted2                color38 default
-color quoted3                color39 default
-color quoted4                color43 default
-color quoted5                color44 default
-color quoted6                color45 default
-color quoted7                color49 default
-color quoted8                color50 default
-color quoted9                color51 default
+color hdrdefault        bold color2  default
+color index_date             color2  default
+color index_number           color2  default
+color index_size             color2  default
+color indicator         bold default color2
+color markers                color2  default
+color normal                 color7  default
+color quoted                 color2  default
+color quoted1                color3  default
+color quoted2                color4  default
+color quoted3                color5  default
+color quoted4                color6  default
 color sidebar_divider        color0  default
 color sidebar_highlight bold color3  default
-color status            bold default color4
+color status            bold default color2
 color tilde                  color0  default
 
 # sidebar

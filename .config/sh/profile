@@ -47,27 +47,39 @@ export VIDEOS_DIR="${HOME}/vids/"
 export GNUPG="9CC4E75365C16465FFE752C94DDBF97211D4EA31"
 
 # colorful man pages
-LESS_TERMCAP_mb="$(printf '\e[01;31m')"
+LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
 export LESS_TERMCAP_mb
-LESS_TERMCAP_md="$(printf '\e[01;38;5;74m')"
+LESS_TERMCAP_md=$(tput bold; tput setaf 2)
 export LESS_TERMCAP_md
-LESS_TERMCAP_me="$(printf '\e[0m')"
+LESS_TERMCAP_me=$(tput sgr0)
 export LESS_TERMCAP_me
-LESS_TERMCAP_se="$(printf '\e[0m')"
-export LESS_TERMCAP_se
-LESS_TERMCAP_so="$(printf '\e[38;5;246m')"
+LESS_TERMCAP_so=$(tput bold; tput setaf 7; tput setab 2)
 export LESS_TERMCAP_so
-LESS_TERMCAP_ue="$(printf '\e[0m')"
-export LESS_TERMCAP_ue
-LESS_TERMCAP_us="$(printf '\e[04;38;5;146m')"
+LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_se
+LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 2)
 export LESS_TERMCAP_us
+LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+export LESS_TERMCAP_ue
+LESS_TERMCAP_mr=$(tput rev)
+export LESS_TERMCAP_mr
+LESS_TERMCAP_mh=$(tput dim)
+export LESS_TERMCAP_mh
+LESS_TERMCAP_ZN=$(tput ssubm)
+export LESS_TERMCAP_ZN
+LESS_TERMCAP_ZV=$(tput rsubm)
+export LESS_TERMCAP_ZV
+LESS_TERMCAP_ZO=$(tput ssupm)
+export LESS_TERMCAP_ZO
+LESS_TERMCAP_ZW=$(tput rsupm)
+export LESS_TERMCAP_ZW
 
 # file explorer
-export FFF_COL1=4
-export FFF_COL2=4
+export FFF_COL1=2
+export FFF_COL2=2
 export FFF_COL3=1
-export FFF_COL4=4
-export FFF_COL5=6
+export FFF_COL4=2
+export FFF_COL5=7
 export FFF_HIDDEN=1
 export FFF_LS_COLORS=1
 export FFF_OPENER="xdg-open"
@@ -84,7 +96,26 @@ export PASH_TIMEOUT=60
 # pfetch
 export HOSTNAME='pc'
 export PF_INFO='ascii title os host kernel uptime pkgs memory shell editor wm palette'
-export PF_COL1=4
+export PF_COL1=2
+
+# fzf
+export FZF_DEFAULT_OPTS='
+    --color fg:7
+    --color preview-fg:2
+    --color preview-bg:2
+    --color hl:2
+    --color fg+:7
+    --color bg+:2
+    --color gutter:2
+    --color hl+:7
+    --color info:2
+    --color border:2
+    --color prompt:2
+    --color pointer:2
+    --color marker:2
+    --color spinner:2
+    --color header:2
+'
 
 # clean up
 export LESSHISTFILE=-
