@@ -11,7 +11,7 @@ export WM='dwm'
 export BAR='dwmblocks'
 export MENU='dmenu_run -c -l 10'
 export LOCKER='slock'
-export BROWSER='firefox'
+export BROWSER='brave'
 export TERMINAL='st'
 export FILE_VIEWER='fff'
 export EDITOR='vim'
@@ -53,7 +53,7 @@ LESS_TERMCAP_md=$(tput bold; tput setaf 2)
 export LESS_TERMCAP_md
 LESS_TERMCAP_me=$(tput sgr0)
 export LESS_TERMCAP_me
-LESS_TERMCAP_so=$(tput bold; tput setaf 7; tput setab 2)
+LESS_TERMCAP_so=$(tput bold; tput setaf 0; tput setab 2)
 export LESS_TERMCAP_so
 LESS_TERMCAP_se=$(tput rmso; tput sgr0)
 export LESS_TERMCAP_se
@@ -79,7 +79,7 @@ export FFF_COL1=2
 export FFF_COL2=2
 export FFF_COL3=1
 export FFF_COL4=2
-export FFF_COL5=7
+export FFF_COL5=0
 export FFF_HIDDEN=1
 export FFF_LS_COLORS=1
 export FFF_OPENER="xdg-open"
@@ -104,7 +104,7 @@ export FZF_DEFAULT_OPTS='
     --color preview-fg:2
     --color preview-bg:2
     --color hl:2
-    --color fg+:7
+    --color fg+:0
     --color bg+:2
     --color gutter:2
     --color hl+:7

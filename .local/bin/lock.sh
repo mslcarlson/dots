@@ -6,10 +6,12 @@ SOCKETS_DIR="/tmp/mpv-sockets/"
 
 for socket in "${SOCKETS_DIR}"/*; do
     [ -e "${socket}" ] || break
-    echo 'set pause yes' | socat - "${socket}";
+    printf 'set pause yes' | socat - "${socket}";
 done
 
-[ -n "$(pgrep "${BROWSER}")" ] && pkill -STOP "${BROWSER}"
+bpid=$(ps -ef | grep "\<${BROWSER}\>" | awk '{ printf "%s ", $2 }')
+
+[ -n "${bpid}" ] && kill -STOP ${bpid}
 
 "${LOCKER}"
 
@@ -19,4 +21,4 @@ jobs -p > "${temp}"
 
 wait < "${temp}"
 
-pkill -CONT "${BROWSER}"
+kill -CONT ${bpid}

@@ -43,7 +43,7 @@ color hdrdefault        bold color2  default
 color index_date             color2  default
 color index_number           color2  default
 color index_size             color2  default
-color indicator         bold default color2
+color indicator         bold color0  color2
 color markers                color2  default
 color normal                 color7  default
 color quoted                 color2  default
@@ -51,9 +51,9 @@ color quoted1                color3  default
 color quoted2                color4  default
 color quoted3                color5  default
 color quoted4                color6  default
-color sidebar_divider        color0  default
+color sidebar_divider        color7  default
 color sidebar_highlight bold color3  default
-color status            bold default color2
+color status            bold color0  color2
 color tilde                  color0  default
 
 # sidebar

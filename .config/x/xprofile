@@ -6,4 +6,5 @@ xrdb "${XDG_CONFIG_HOME:-${HOME}/.config}/x/xresources"
 lock.sh &
 "${BAR}" &
 feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share}/wp"
+xcompmgr &
 xset r rate 250 50

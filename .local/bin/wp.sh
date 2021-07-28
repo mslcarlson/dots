@@ -11,6 +11,7 @@ DEFAULTFG=259
 # xresources handles suckless vars
 XRESOURCES="${XDG_CONFIG_HOME:-${HOME}/.config}/x/xresources"
 TMP='/tmp/xsettingsd'
+FLATCOLOR="${XDG_DATA_HOME:-${HOME}/.local/share}/themes/FlatColor/gtk-3.20/gtk.css"
 
 # get random valid file in dir
 get_rand_file() {
@@ -24,17 +25,19 @@ get_rand_file() {
     file=''
     while ! check_file "${file}"; do
         # get random file and remove it from list
-        file="$(printf '%s' "${files}" | shuf -n 1)"
-        files="$(printf '%s' "${files}" | grep -vw "${file}")"
+        file="$(printf '%s' "${files}" | awk 'BEGIN{ srand() } { printf "%f %s\n", rand(), $0 }' | sort | cut -d ' ' -f 2 | head -n 1)"
+        files="$(printf '%s' "${files}" | grep -v "${file}")"
 
-        # exit if no more files to check
+        # break if no more files to check
         [ -z "${files}" ] && break
     done
 
     # no files in dir are valid
     if ! check_file "${file}"; then file=''; fi
 
-    [ -z "${file}" ] && return 1 || break
+    if [ -z "${file}" ]; then return 1
+    else return 0
+    fi
 }
 
 check_file () {
@@ -63,7 +66,7 @@ check_file () {
       | tif  \
       | tiff \
       | webp \
-      | xpm) break    ;;
+      | xpm) return   ;;
         *)   return 1 ;;
     esac
 }
@@ -80,14 +83,14 @@ wp () {
 }
 
 theme() {
-    # remove cached themes and gen new one
-    wal -c && wal -ni "${WP}"
+    # remove cached themes
+    wal -c
 
-    # gtk
+    # gen new theme with wpg (uses pywal)
     wpg -a "${file}" && wpg -ns "${file}"
 
-    # use main color for gtk
-    sed -i "s/\@define-color selected_bg_color.*/\@define-color selected_bg_color @color2;/g" "${XDG_DATA_HOME:-${HOME}/.local/share}/themes/FlatColor/gtk-3.20/gtk.css"
+    # fix colors for gtk
+    printf '%s\n' "$(sed 's/\@define-color selected_bg_color.*/\@define-color selected_bg_color @color2;/g' "${FLATCOLOR}")" > "${FLATCOLOR}"
 
     # xsettingsd to live reload gtk with correct color
     printf "Net/ThemeName \"FlatColor\"" > "${TMP}"
@@ -95,14 +98,14 @@ theme() {
 
     [ -f "${COLORS}" ] && . "${COLORS}"
 
-    set -- ${color0} ${color1} ${color2} ${color3} ${color4} ${color5} ${color6} ${color7} \
-           ${color8} ${color9} ${color10} ${color11} ${color12} ${color13} ${color14} ${color15}
+    set -- "${color0}" "${color1}" "${color2}" "${color3}" "${color4}" "${color5}" "${color6}" "${color7}" \
+           "${color8}" "${color9}" "${color10}" "${color11}" "${color12}" "${color13}" "${color14}" "${color15}"
 
     # replace colors in xresources
     i=0
     for color in "${@}"; do
         color="$(printf '%s' "${color}" | tr '[:upper:]' '[:lower:]')"
-        sed -i "s/#define col${i} .*/#define col${i} ${color}/" "${XRESOURCES}"
+        printf '%s\n' "$(sed "s/#define col${i} .*/#define col${i} ${color}/" "${XRESOURCES}")" > "${XRESOURCES}"
         i=$((i+1))
         [ ${i} -eq 16 ] && break
     done
@@ -110,13 +113,13 @@ theme() {
     # reload xresources
     xrdb "${XRESOURCES}"
 
-    # reload all instances of st
-    kill -s USR1 $(pidof st)
+    # reload all instances of term
+    kill -s USR1 $(ps -ef | grep "\<${TERMINAL}\>" | grep -v "\<grep\>" | awk '{ printf "%s ", $2 }')
 
     # hacky work-around to change terminal fg on the fly
     # buggy with alpha
-    for tty in $(ls /dev/pts/ | egrep -i '[1-9][0-9]*'); do
-        printf "\033]4;${DEFAULTFG};${color0}\007" > "/dev/pts/${tty}" 2>/dev/null
+    for tty in $(find /dev/pts/ -name '*' | grep '[1-9][0-9]*' | tr -d '[:alpha:][=/=]'); do
+        echo "\033]4;${DEFAULTFG};${color0}\007" > "/dev/pts/${tty}" 2>/dev/null
     done
 
     # reload dwm
@@ -138,14 +141,12 @@ main() {
 
     # if dir get rand file
     if [ -d "${path}" ]; then
-        get_rand_file "${path}"
+        get_rand_file "${path}" && wp "${file}"
     # if file check it
     elif [ -f "${path}" ]; then
-        check_file "${path}"
+        check_file "${path}" && wp "${file}"
+    else return 1
     fi
-
-    # change wp if file exists and is ok
-    { [ ${?} -eq 0 ] && [ -n "${file}" ] && wp "${file}" ; } || return 1
 }
 
 main "${@}"

@@ -1,20 +1,28 @@
 ! colors
-#define col0 #160f0c
-#define col1 #3844a1
-#define col2 #6b5f92
-#define col3 #506e83
-#define col4 #867497
-#define col5 #8b7dc3
-#define col6 #6e878d
-#define col7 #c6c0cb
-#define col8 #8a868e
-#define col9 #3844a1
-#define col10 #6b5f92
-#define col11 #506e83
-#define col12 #867497
-#define col13 #8b7dc3
-#define col14 #6e878d
-#define col15 #c6c0cb
+#define col0 #121613
+#define col1 #c3619a
+#define col2 #6f92af
+#define col3 #76b3c9
+#define col4 #7bc2d4
+#define col5 #9b91ae
+#define col6 #b08fab
+#define col7 #c5d1dc
+#define col8 #89929a
+#define col9 #c3619a
+#define col10 #6f92af
+#define col11 #76b3c9
+#define col12 #7bc2d4
+#define col13 #9b91ae
+#define col14 #b08fab
+#define col15 #c5d1dc
+
+! font
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.autohint: 0
+Xft.rgba: rgb
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
 ! dwm
 dwm.font            : monospace:size=16
@@ -23,7 +31,7 @@ dwm.normbordercolor : col0
 dwm.normfgcolor     : col7
 dwm.selbgcolor      : col2
 dwm.selbordercolor  : col2
-dwm.selfgcolor      : col7
+dwm.selfgcolor      : col0
 dwm.borderpx        : 3
 dwm.snap            : 32
 dwm.topbar          : 0
@@ -48,7 +56,7 @@ dwm.ulineall        : 0
 dmenu.font         : monospace:size=16
 dmenu.normfgcolor  : col7
 dmenu.normbgcolor  : col0
-dmenu.selfgcolor   : col7
+dmenu.selfgcolor   : col0
 dmenu.selbgcolor   : col2
 dmenu.prompt       :
 dmenu.min_width    : 500
@@ -118,8 +126,8 @@ st.cursorthickness    : 2
 st.boxdraw            : 1
 st.boxdraw_bold       : 1
 st.boxdraw_braille    : 1
-st.alpha              : 0.8
-st.alphaUnfocused     : 0.6
+st.alpha              : 0.95
+st.alphaUnfocused     : 0.90
 st.defaultfg          : 15
 st.defaultbg          : 258
 st.defaultcs          : 256
