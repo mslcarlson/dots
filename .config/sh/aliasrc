@@ -22,7 +22,8 @@ alias \
 
 # gnu/linux
 alias \
-     free='free -m' \
+     free='free -m'  \
+     ft='grep -nwIR' \
      o='xdg-open'
 
 # startx
