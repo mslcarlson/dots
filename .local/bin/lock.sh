@@ -9,7 +9,7 @@ for socket in "${SOCKETS_DIR}"/*; do
     printf 'set pause yes' | socat - "${socket}";
 done
 
-bpid=$(ps -ef | grep "\<${BROWSER}\>" | awk '{ printf "%s ", $2 }')
+bpid=$(ps -ef | grep "\<${BROWSER}\>" | grep -v '\<grep\>' | awk '{ printf "%s ", $2 }')
 
 [ -n "${bpid}" ] && kill -STOP ${bpid}
 

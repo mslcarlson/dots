@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# ytfzf.sh
+# ytfzf
 
 # env vars
 YTFZF_CUR=1

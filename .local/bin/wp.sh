@@ -114,7 +114,7 @@ theme() {
     xrdb "${XRESOURCES}"
 
     # reload all instances of term
-    kill -s USR1 $(ps -ef | grep "\<${TERMINAL}\>" | grep -v "\<grep\>" | awk '{ printf "%s ", $2 }')
+    kill -s USR1 $(ps -ef | grep "\<${TERMINAL}\>" | grep -v '\<grep\>' | awk '{ printf "%s ", $2 }')
 
     # hacky work-around to change terminal fg on the fly
     # buggy with alpha
