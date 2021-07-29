@@ -26,9 +26,8 @@ main() {
 
     # ipc
     while read -r line; do
-        # cmds and data needed to interface with pinentry
+        # cmds needed to interface with pinentry
         cmd="$(printf '%s\n' "${line}" | cut -d ' ' -f 1)"
-        data="$(printf '%s\n' "${line}" | cut -d' ' -f 2-)"
 
         case "${cmd}" in
             # GETPIN is command pinentry uses for GNUPG pass
