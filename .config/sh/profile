@@ -82,7 +82,7 @@ export FFF_COL4=2
 export FFF_COL5=0
 export FFF_HIDDEN=1
 export FFF_LS_COLORS=1
-export FFF_OPENER="xdg-open"
+export FFF_OPENER="${HOME}/.local/bin/open.sh"
 export FFF_STAT_CMD="stat"
 
 # pash

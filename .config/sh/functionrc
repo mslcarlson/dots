@@ -3,6 +3,6 @@
 # functionrc
 
 f() { fff "${@}" && cd "$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/fff/.fff_d")" || exit ; }
-s() { du -a "${HOME}" | awk '{ $1="" } { gsub("^ ", "", $0); print "\"" $0 "\"" }' | fzf | xargs -or xdg-open ; }
+s() { du -a "${HOME}" | awk '{ $1="" } { gsub("^ ", "", $0); print "\"" $0 "\"" }' | fzf | tr -d '[="=]' | open.sh ; }
 rands() { </dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head -c "${1}" ; printf '%s\n'; }
 rp() { for f in *; do mv "${f}" "$(printf '%s\n' "${f}" | sed "s/${1}/${2}/g")"; done ; }

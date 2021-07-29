@@ -2,7 +2,11 @@
 #
 # open
 
-case "${1}" in
+if [ ${#} -eq 0 ]; then opt="$(tee -i)"
+else opt="${*}"
+fi
+
+case "${opt}" in
     # audio
     *.flac \
   | *.m4a  \
@@ -10,26 +14,25 @@ case "${1}" in
   | *.ogg  \
   | *.opus \
   | *.wav)
-        "${MEDIA_PLAYER}" --no-video "${1}"
+        "${MEDIA_PLAYER}" --no-video "${opt}"
     ;;
 
     # document
     *.djvu \
   | *.epub \
   | *.pdf)
-        "${READER}" "${1}"
+        "${READER}" "${opt}"
     ;;
 
     # gif
     *.gif)
-        "${MEDIA_PLAYER}" --loop "${1}"
+        "${MEDIA_PLAYER}" --loop "${opt}"
     ;;
 
     # image
     *.bmp  \
   | *.dib  \
   | *.ff   \
-  | *.gif  \
   | *.ico  \
   | *.iff  \
   | *.jfi  \
@@ -46,7 +49,7 @@ case "${1}" in
   | *.tiff \
   | *.webp \
   | *.xpm)
-        "${IMG_VIEWER}" "${1}"
+        "${IMG_VIEWER}" "${opt}"
     ;;
 
     # video
@@ -54,7 +57,7 @@ case "${1}" in
   | *.mkv \
   | *.mp4 \
   | *.webm)
-        "${MEDIA_PLAYER}" "${1}"
+        "${MEDIA_PLAYER}" "${opt}"
     ;;
 
     # web/vector
@@ -63,11 +66,11 @@ case "${1}" in
   | *.php   \
   | *.svg   \
   | *.xhtml)
-        "${BROWSER}" "${1}"
+        "${BROWSER}" "${opt}"
     ;;
 
     # everything else
     *)
-        "${EDITOR:-vi}" "${1}"
+        exec "${EDITOR:-vi}" "${opt}" </dev/tty
     ;;
 esac

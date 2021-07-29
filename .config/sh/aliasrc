@@ -24,7 +24,7 @@ alias \
 alias \
      free='free -m'  \
      ft='grep -nwIR' \
-     o='xdg-open'
+     o='open.sh'
 
 # startx
 [ -f "${XINITRC}" ] && alias startx='startx ${XINITRC}'
