@@ -33,6 +33,8 @@ export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/share}/gnupg/"
 export ENV="${XDG_CONFIG_HOME:-${HOME}/.config}/mksh/mkshrc"
 export HISTFILE=''
 export XAUTHORITY="${XDG_RUNTIME_DIR}/xauth"
+export YTFZF_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ytfzf/"
+export YTFZF_CONFIG_FILE="${YTFZF_CONFIG_DIR}/ytfzf.sh"
 
 # folders
 export DEV_DIR="${HOME}/dev/"
