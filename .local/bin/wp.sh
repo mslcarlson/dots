@@ -10,8 +10,6 @@ COLORS="${XDG_CACHE_HOME:-${HOME}/.cache}/wal/colors.sh"
 DEFAULTFG=259
 # xresources handles suckless vars
 XRESOURCES="${XDG_CONFIG_HOME:-${HOME}/.config}/x/xresources"
-TMP='/tmp/xsettingsd'
-FLATCOLOR="${XDG_DATA_HOME:-${HOME}/.local/share}/themes/FlatColor/gtk-3.20/gtk.css"
 
 # get random valid file in dir
 get_rand_file() {
@@ -89,13 +87,6 @@ theme() {
     # gen new theme with wpg (uses pywal)
     wpg -a "${file}" && wpg -ns "${file}"
 
-    # fix colors for gtk
-    printf '%s\n' "$(sed 's/\@define-color selected_bg_color.*/\@define-color selected_bg_color @color2;/g' "${FLATCOLOR}")" > "${FLATCOLOR}"
-
-    # xsettingsd to live reload gtk with correct color
-    printf "Net/ThemeName \"FlatColor\"" > "${TMP}"
-    xsettingsd -c "${TMP}" &
-
     [ -f "${COLORS}" ] && . "${COLORS}"
 
     set -- "${color0}" "${color1}" "${color2}" "${color3}" "${color4}" "${color5}" "${color6}" "${color7}" \
@@ -127,9 +118,6 @@ theme() {
 
     # zathura
     zathura-pywal
-
-    # rm xsettingsd tmp later b/c it complains otherwise
-    rm -f "${TMP}"
 }
 
 main() {

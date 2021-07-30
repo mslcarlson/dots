@@ -40,9 +40,12 @@ color body              bold color2  default "(https?|ftp)://[\-\.,/%~_:?&=\#a-z
 color body              bold color2  default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"
 color error             bold color1  default
 color hdrdefault        bold color2  default
+color index             bold default default '~N'
+color index_author      bold default default '~N'
 color index_date             color2  default
 color index_number           color2  default
 color index_size             color2  default
+color index_subject     bold default default '~N'
 color indicator         bold color0  color2
 color markers                color2  default
 color normal                 color7  default
