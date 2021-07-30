@@ -1,0 +1,27 @@
+# general
+ncmpcpp_directory                     = ~/.config/ncmpcpp
+lyrics_directory                      = ~/.local/share/ncmpcpp/lyrics
+mpd_music_dir                         = ~/music
+visualizer_data_source                = /tmp/mpd.fifo
+visualizer_color                      = green
+alternative_header_first_line_format  = $b$3$aqqu$/a$9 {%t}|{%f} $3$atqq$/a$9$/b
+alternative_header_second_line_format = {{$b$8%b}{ (%y)}}|{%D}
+current_item_prefix                   = $(green)$r
+current_item_inactive_column_prefix   = $(green)$r
+browser_playlist_prefix               = "$3playlist "
+selected_item_prefix                  = $3
+selected_item_suffix                  = $3
+modified_item_prefix                  = $3
+song_window_title_format              = {%a - }{%t}|{%f}
+song_columns_list_format              = (20)[green]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[green]{b} (7f)[green]{l}
+volume_change_step                    = 1
+user_interface                        = alternative
+media_library_primary_tag             = genre
+media_library_hide_album_dates        = no
+connected_message_on_startup          = no
+header_text_scrolling                 = no
+cyclic_scrolling                      = yes
+colors_enabled                        = yes
+empty_tag_color                       = green
+main_window_color                     = green
+alternative_ui_separator_color        = green:b
