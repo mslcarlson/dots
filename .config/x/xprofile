@@ -8,3 +8,4 @@ lock.sh &
 feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share}/wp"
 xcompmgr &
 xset r rate 250 50
+mpd &
