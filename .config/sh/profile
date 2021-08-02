@@ -50,23 +50,25 @@ export VIDEOS_DIR="${HOME}/vids/"
 export GNUPG="9CC4E75365C16465FFE752C94DDBF97211D4EA31"
 
 # colorful man pages
-LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
+
+# colorful man pages
+LESS_TERMCAP_mb="$(printf '%b' '\x1b[1;32m')"
 export LESS_TERMCAP_mb
-LESS_TERMCAP_md=$(tput bold; tput setaf 2)
+LESS_TERMCAP_md="$(printf '%b' '\x1b[1;32m')"
 export LESS_TERMCAP_md
-LESS_TERMCAP_me=$(tput sgr0)
+LESS_TERMCAP_me="$(printf '%b' '\x1b[0m')"
 export LESS_TERMCAP_me
-LESS_TERMCAP_so=$(tput bold; tput setaf 0; tput setab 2)
+LESS_TERMCAP_so="$(printf '%b' '\x1b[1;30;42m')"
 export LESS_TERMCAP_so
-LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+LESS_TERMCAP_se="$(printf '%b' '\x1b[23;0m')"
 export LESS_TERMCAP_se
-LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 2)
+LESS_TERMCAP_us="$(printf '%b' '\x1b[4;1;32m')"
 export LESS_TERMCAP_us
-LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+LESS_TERMCAP_ue="$(printf '%b' '\x1b[24;0m')"
 export LESS_TERMCAP_ue
-LESS_TERMCAP_mr=$(tput rev)
+LESS_TERMCAP_mr="$(printf '%b' '\x1b[7m')"
 export LESS_TERMCAP_mr
-LESS_TERMCAP_mh=$(tput dim)
+LESS_TERMCAP_mh="$(printf '%b' '\x1b[2m')"
 export LESS_TERMCAP_mh
 LESS_TERMCAP_ZN=$(tput ssubm)
 export LESS_TERMCAP_ZN

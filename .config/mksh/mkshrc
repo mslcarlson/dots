@@ -6,29 +6,28 @@ if ! command -v pfetch >/dev/null; then pfetch() { :; }; fi
 
 pfetch
 
-# tput
-COL0="$(tput setaf 0)"
-COL1="$(tput setaf 1)"
-COL2="$(tput setaf 2)"
-COL3="$(tput setaf 3)"
-COL4="$(tput setaf 4)"
-COL5="$(tput setaf 5)"
-COL6="$(tput setaf 6)"
-COL7="$(tput setaf 7)"
-COL8="$(tput setaf 8)"
-COL9="$(tput setaf 9)"
-COL10="$(tput setaf 10)"
-COL11="$(tput setaf 11)"
-COL12="$(tput setaf 12)"
-COL13="$(tput setaf 13)"
-COL14="$(tput setaf 14)"
-COL15="$(tput setaf 15)"
-BOLD="$(tput bold)"
-NORMAL="$(tput sgr0)"
+COL0='\x1b[0;30m'
+COL1='\x1b[0;31m'
+COL2='\x1b[0;32m'
+COL3='\x1b[0;33m'
+COL4='\x1b[0;34m'
+COL5='\x1b[0;35m'
+COL6='\x1b[0;36m'
+COL7='\x1b[0;37m'
+COL8='\x1b[1;30m'
+COL9='\x1b[1;31m'
+COL10='\x1b[1;32m'
+COL11='\x1b[1;33m'
+COL12='\x1b[1;34m'
+COL13='\x1b[1;35m'
+COL14='\x1b[1;36m'
+COL15='\x1b[1;37m'
+BOLD='\x1b[1m'
+NORMAL='\x1b[0m'
 
 # prompt
 # bashism required b/c mksh doesn't support param expansion for PS1
-PS1='${BOLD}${COL2}${PWD} $ ${NORMAL}${COL7}'
+PS1=$'$(printf '%b' "${COL10}${PWD} $ ${NORMAL}")'
 export PS1
 
 # gpg tty
