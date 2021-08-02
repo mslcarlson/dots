@@ -35,6 +35,7 @@ export HISTFILE=''
 export XAUTHORITY="${XDG_RUNTIME_DIR}/xauth"
 export YTFZF_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ytfzf/"
 export YTFZF_CONFIG_FILE="${YTFZF_CONFIG_DIR}/ytfzf.sh"
+export STARDICT_DATA_DIR="${XDG_DATA_HOME:-${HOME}/.local/share/}"
 
 # folders
 export DEV_DIR="${HOME}/dev/"
@@ -121,6 +122,7 @@ export FZF_DEFAULT_OPTS='
 
 # clean up
 export LESSHISTFILE=-
+export SDCV_HISTFILE='/dev/null'
 
 # sx
 [ -z "${DISPLAY}" ] && [ "$(tty)" = /dev/tty1 ] && ssh-agent sx

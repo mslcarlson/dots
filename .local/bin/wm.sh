@@ -2,4 +2,4 @@
 #
 # wm
 
-while true; do "${WM}" >/dev/null 2>&1; done
+while :; do "${WM}" >/dev/null 2>&1; done
