@@ -2,33 +2,36 @@
 #
 # aliasrc
 
-# unix commands
+# posix
 alias \
-    bc='bc -lq'     					                 \
-    cp='cp -iv'     					                 \
-    df='df -hT'     					                 \
-    diff='diff --color=auto'                             \
-    du='du -h'                  			             \
-    echo='echo -en'             			             \
-    egrep='egrep --color=auto'				             \
-    fgrep='fgrep --color=auto'				             \
-    grep='grep --color=auto'                             \
-    ls='ls -ahls --color=auto --group-directories-first' \
-    mkdir='mkdir -p'                                     \
-    more='less'                 			             \
-    mv='mv -iv'                 			             \
-    rmdir='rmdir -pv'           			             \
-    vi='vim'
+    bc='bc -l'        \
+    cp='cp -R'        \
+    ls='ls -ls'       \
+    mkdir='mkdir -p'  \
+    more='less'       \
+    rm='rm -iR'       \
+    rmdir='rmdir -p'
 
 # gnu/linux
-alias \
-     def='sdcv -u '\''en-wiktionary'\''' \
-     free='free -m'                      \
-     ft='grep -nwIR'                     \
-     o='open.sh'
-
-# startx
-[ -f "${XINITRC}" ] && alias startx='startx ${XINITRC}'
+if uname -s | grep -i 'linux' >/dev/null 2>&1; then
+    alias \
+         bc='bc -lq'                                          \
+         cp='cp -vR'     					                  \
+         def='sdcv -u '\''en-wiktionary'\'''                  \
+         df='df -hT'     					                  \
+         diff='diff --color=auto'                             \
+         du='du -h'                  			              \
+         echo='echo -en'             			              \
+         egrep='egrep --color=auto'			                  \
+         fgrep='fgrep --color=auto'			                  \
+         ft='grep -nwIR'                                      \
+         grep='grep --color=auto'                             \
+         ls='ls -ahls --color=auto --group-directories-first' \
+         mv='mv -v'                 			              \
+         o='open.sh'                                          \
+         rmdir='rmdir -pv --ignore-fail-on-non-empty'         \
+         vi='vim'
+fi
 
 # directories
 alias \

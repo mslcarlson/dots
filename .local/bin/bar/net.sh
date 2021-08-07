@@ -16,7 +16,7 @@ net_menu() {
         iwctl station "${interface}" scan
 
         # get available networks and known networks
-        get_network_info "iwctl station "${interface}" get-networks" 'iwctl known-networks list'
+        get_network_info "iwctl station ${interface} get-networks" 'iwctl known-networks list'
 
         # user can connect, disconnect, or forget network
         # don't care bout access points or other stuff
@@ -31,7 +31,7 @@ net_menu() {
         case "${network}" in '> '*) printf 'Already connected to this network\n' && return ;; esac
 
         # if network is known connect with no passphrase
-        if [ $(printf '%s\n' "${known_network_info}" | awk -F '|' '{print $1}' | grep "\<${network}\>") ]; then
+        if printf '%s\n' "${known_network_info}" | awk -F '|' '{print $1}' | grep -q "\<${network}\>"; then
             iwctl station "${interface}" connect "${network}"
             return
         fi
@@ -79,7 +79,7 @@ net_menu() {
     }
 
     get_network_info() {
-        if [ "${1}" = "iwctl station "${interface}" get-networks" ]; then
+        if [ "${1}" = "iwctl station ${interface} get-networks" ]; then
             info="$(eval "${1}" | grep '\s' | tail +3 | awk '{ $1 = $1 }; 1' | sed -e 's/\x1b\[[0-9;]*m//g')"
 
             available_network_names="$(get_network_column '1')"

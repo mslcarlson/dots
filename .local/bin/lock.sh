@@ -4,7 +4,7 @@
 
 SOCKETS_DIR="/tmp/mpv-sockets/"
 
-mpc pause &>/dev/null;
+mpc pause >/dev/null 2>&1;
 
 for socket in "${SOCKETS_DIR}"/*; do
     [ -e "${socket}" ] || break

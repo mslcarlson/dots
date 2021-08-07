@@ -11,7 +11,7 @@ BRIGHTNESS="${XDG_CACHE_HOME:-${HOME}/.cache}/bar/brightness"
 get_brightness() {
     [ ! -f "${BRIGHTNESS}" ] && return
     # brightness cache should contain only number
-    ! brightness=$(cat ${BRIGHTNESS} | grep '^[0-9][0-9]*$') && return
+    ! brightness=$(grep '^[0-9][0-9]*$' "${BRIGHTNESS}") && return
 
 }
 
@@ -19,13 +19,18 @@ set_brightness() {
     get_brightness
 
     # keep between 0-100
-    [ "${1}" = '+' ] && [ ${brightness} -ge 100 ] && return
-    [ "${1}" = '-' ] && [ ${brightness} -le 0 ] && return
-
-    brightness=$((${brightness} ${1} ${2}))
+    if [ "${1}" = '+' ]; then
+        if [ "${brightness}" -lt 100 ]; then brightness=$((brightness + ${2}))
+        else return
+        fi
+    elif [ "${1}" = '-' ]; then
+        if [ "${brightness}" -gt 0 ]; then brightness=$((brightness - ${2}))
+        else return
+        fi
+    fi
 
     # set brightness using ddcutil
-    doas ddcutil setvcp ${VCP_CODE} ${brightness} >/dev/null 2>&1
+    doas ddcutil setvcp ${VCP_CODE} "${brightness}" >/dev/null 2>&1
 
     # get actual brightness and send output to cache
     printf '%s\n' "$(doas ddcutil getvcp ${VCP_CODE} | awk '{ print $9 }' | tr -d '[:punct:]')" 2>/dev/null > "${BRIGHTNESS}"

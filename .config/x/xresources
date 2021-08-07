@@ -17,12 +17,12 @@
 #define col15 #c5d1dc
 
 ! font
-Xft.antialias: 1
-Xft.hinting: 1
-Xft.autohint: 0
-Xft.rgba: rgb
-Xft.hintstyle: hintmedium
-Xft.lcdfilter: lcddefault
+Xft.antialias : 1
+Xft.hinting   : 1
+Xft.autohint  : 0
+Xft.rgba      : rgb
+Xft.hintstyle : hintmedium
+Xft.lcdfilter : lcddefault
 
 ! dwm
 dwm.font            : monospace:size=16
