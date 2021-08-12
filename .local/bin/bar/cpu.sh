@@ -16,7 +16,7 @@ DELAY=3.15
 TEMP="$(ls /sys/class/thermal/thermal_zone2*/temp)"
 
 # cache used b/c awk and delay is time expensive
-USAGE="${XDG_CACHE_HOME:-${HOME}/.cache}/bar/usage"
+USAGE="${XDG_CACHE_HOME:-${HOME}/.cache/}/bar/usage"
 
 calculate_temp() {
     [ -f "${TEMP}" ] && temp=$(cat "${TEMP}")
@@ -36,7 +36,7 @@ get_procs() { ps -Ao comm,pcpu --sort=-pcpu | head -n 11 | tail -n -10 | sed 's/
 
 get_usage() { [ -f "${USAGE}" ] && usage=$(cat "${USAGE}") ; }
 
-show() {
+bar() {
     # temp
     calculate_temp
     case ${temp} in
@@ -57,12 +57,10 @@ show() {
 
 main() {
     # called from bar
-    [ ${#} -eq 0 ] && show
+    [ ${#} -eq 0 ] && bar
 
     # bar usage
-    case "${BLOCK_BUTTON}" in
-        *) ;;
-    esac
+    case ${BLOCK_BUTTON} in esac
 }
 
 main "${@}"

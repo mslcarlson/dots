@@ -10,8 +10,8 @@ VOLUME_MUTED_ICON=''
 
 get_scontrol() {
     # Prefer Master but use PCM if not available
-    if amixer scontrols | grep -q 'Master'; then scontrol='Master'
-    elif amixer scontrols | grep -q 'PCM'; then scontrol='PCM'
+    if amixer scontrols | grep -iq 'Master'; then scontrol='Master'
+    elif amixer scontrols | grep -iq 'PCM'; then scontrol='PCM'
     fi
 }
 
@@ -23,25 +23,29 @@ toggle() {
 }
 
 # set volume linearly
-set_vol() { amixer set "${scontrol}" "${2}"%"${1}" -M ; }
+set_vol() {
+    amixer set "${scontrol}" "${2}"%"${1}" -M
+    vol=$(get_vol)
+    env HERBE_ID=/0 herbe "Volume: ${vol}%" &
+}
 
-show() {
+bar() {
     vol=$(get_vol)
 
     # check if muted
     if [ "${scontrol}" = 'Master' ] || [ "${scontrol}" = 'PCM' ]; then
-        if amixer get "${scontrol}" | sed 5q | grep -q '\[off\]' || \
-           amixer get 'IEC958,5' | sed 4q | grep -q '\[off\]'; then
+        if amixer get "${scontrol}" | sed 5q | grep -iq '\[off\]' || \
+           amixer get 'IEC958,5' | sed 4q | grep -iq '\[off\]'; then
             printf '%s\n' "${VOLUME_MUTED_ICON} ${vol}%" && return
         fi
     fi
 
     # volume 0 is off, 1-33 is low, 34-66 is med, 67-100 is high
     case ${vol} in
-        100|9[0-9]|8[0-9]|7[0-9]|6[7-9]) printf '%s\n' "${VOLUME_HIGH_ICON} ${vol}%" ;;
-        6[0-6]|5[0-9]|4[0-9]|3[4-9])     printf '%s\n' "${VOLUME_MID_ICON} ${vol}%" ;;
-        3[0-3]|2[0-9]|1[0-9]|[1-9])      printf '%s\n' "${VOLUME_LOW_ICON} ${vol}%" ;;
         0)                               printf '%s\n' "${VOLUME_OFF_ICON} ${vol}%" ;;
+        [1-9]|1[0-9]|2[0-9]|3[0-3])      printf '%s\n' "${VOLUME_LOW_ICON} ${vol}%" ;;
+        3[4-9]|4[0-9]|5[0-9]|6[0-6])     printf '%s\n' "${VOLUME_MID_ICON} ${vol}%" ;;
+        6[7-9]|7[0-9]|8[0-9]|9[0-9]|100) printf '%s\n' "${VOLUME_HIGH_ICON} ${vol}%" ;;
     esac
 }
 
@@ -49,17 +53,24 @@ main() {
     get_scontrol
 
     # called from bar
-    [ ${#} -eq 0 ] && show
+    [ ${#} -eq 0 ] && bar
 
-    # bar options
-    case "${BLOCK_BUTTON}" in
+    # bar usage
+    case ${BLOCK_BUTTON} in
         1) "${TERMINAL}" -c 'alsamixer' -e 'alsamixer' ;;
         2) toggle                                      ;;
         4) set_vol + 1                                 ;;
         5) set_vol - 1                                 ;;
     esac
 
-    # adjust volume based on args
+    while getopts 't' opt; do
+        case "${opt}" in
+            # toggle if t flag used
+            t) toggle && return ;;
+        esac
+    done
+
+    # set volume based on args
     # ${1} = +/- and ${2} = percentage
     [ "${*}" ] && set_vol "${1}" "${2}"
 }

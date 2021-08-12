@@ -28,12 +28,12 @@ export XDG_CACHE_HOME="${HOME}/.cache/"
 export XDG_STATE_HOME="${HOME}/.local/state/"
 
 # xdg base directory support
-export VIMINIT="source ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
-export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/share}/gnupg/"
-export ENV="${XDG_CONFIG_HOME:-${HOME}/.config}/mksh/mkshrc"
+export VIMINIT="source ${XDG_CONFIG_HOME:-${HOME}/.config/}/vim/vimrc"
+export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/share/}/gnupg/"
+export ENV="${XDG_CONFIG_HOME:-${HOME}/.config/}/mksh/mkshrc"
 export HISTFILE=''
 export XAUTHORITY="${XDG_RUNTIME_DIR}/xauth"
-export YTFZF_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ytfzf/"
+export YTFZF_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config/}/ytfzf/"
 export YTFZF_CONFIG_FILE="${YTFZF_CONFIG_DIR}/ytfzf.sh"
 export STARDICT_DATA_DIR="${XDG_DATA_HOME:-${HOME}/.local/share/}"
 

@@ -70,10 +70,10 @@ herbe.font_color       : col7
 herbe.font_pattern     : monospace:size=16
 herbe.line_spacing     : 5
 herbe.padding          : 5
-herbe.width            : 350
+herbe.width            : 285
 herbe.border_size      : 3
 herbe.pos_x            : 15
-herbe.pos_y            : 42
+herbe.pos_y            : 44
 herbe.corner           : 3
 herbe.duration         : 5
 

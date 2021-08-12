@@ -8,7 +8,7 @@ PAUSED_ICON=''
 
 open() { "${TERMINAL}" -c "${MUSIC_PLAYER}" -e "${MUSIC_PLAYER}" ; }
 
-show() {
+bar() {
     # get current song name
     song="$(mpc -f %title% | head -n 1)"
     # get state of song
@@ -24,10 +24,10 @@ show() {
 
 main() {
     # called from bar
-    [ ${#} -eq 0 ] && show
+    [ ${#} -eq 0 ] && bar
 
-    # bar options
-    case "${BLOCK_BUTTON}" in
+    # bar usage
+    case ${BLOCK_BUTTON} in
         1) open                                             ;;
         2) mpc -q toggle                                    ;;
         4) mpc -q prev                                      ;;
@@ -37,8 +37,7 @@ main() {
     while getopts 'o' opt; do
         case "${opt}" in
             # open music player if called with o flag
-            o) open    ;;
-            *) return  ;;
+            o) open ;;
         esac
     done
 }

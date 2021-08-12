@@ -35,7 +35,7 @@ GPG_TTY="$(tty)"
 export GPG_TTY
 
 # aliasrc
-[ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/aliasrc"
+[ -f "${XDG_CONFIG_HOME:-${HOME}/.config/}/sh/aliasrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config/}/sh/aliasrc"
 
 # functionrc
-[ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/functionrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/functionrc"
+[ -f "${XDG_CONFIG_HOME:-${HOME}/.config/}/sh/functionrc" ] && . "${XDG_CONFIG_HOME:-${HOME}/.config/}/sh/functionrc"

@@ -2,6 +2,6 @@
 #
 # sxrc
 
-. "${XDG_CONFIG_HOME:-${HOME}/.config}/x/xprofile"
+. "${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xprofile"
 
 "${WM}" >/dev/null 2>&1

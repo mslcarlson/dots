@@ -31,13 +31,13 @@ net_menu() {
         case "${network}" in '> '*) printf 'Already connected to this network\n' && return ;; esac
 
         # if network is known connect with no passphrase
-        if printf '%s\n' "${known_network_info}" | awk -F '|' '{print $1}' | grep -q "\<${network}\>"; then
+        if printf '%s\n' "${known_network_info}" | awk -F '|' '{print $1}' | grep -iq "\<${network}\>"; then
             iwctl station "${interface}" connect "${network}"
             return
         fi
 
         # if network is wep, psk, or 8021x get passphrase
-        case "$(printf '%s\n' "${available_network_info}" | grep "\<${network}\>" | awk -F '|' '{print $2}')" in
+        case "$(printf '%s\n' "${available_network_info}" | grep -i "\<${network}\>" | awk -F '|' '{print $2}')" in
             'wep'|'psk'|'8021x') get_passphrase                       ;;
         # if open just connect without passphrase
             'open') iwctl station "${interface}" connect "${network}" ;;
@@ -48,7 +48,7 @@ net_menu() {
     }
 
     disconnect() {
-        connected_network="$(iwctl station "${interface}" show | grep '\<Connected network\>' | awk '{ $1=""; $2=""; sub("  ", " "); {$1=$1;print} }')"
+        connected_network="$(iwctl station "${interface}" show | grep -i '\<Connected network\>' | awk '{ $1=""; $2=""; sub("  ", " "); {$1=$1;print} }')"
         if [ -n "${connected_network}" ]; then
             answer="$(show_menu "Disconnect from ${connected_network}?" 'Yes' 'No')"
             case "$(printf '%s\n' "${answer}" | tr '[:upper:]' '[:lower:]')" in

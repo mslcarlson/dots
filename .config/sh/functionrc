@@ -2,7 +2,7 @@
 #
 # functionrc
 
-f() { fff "${@}" && cd "$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/fff/.fff_d")" || exit ; }
+f() { fff "${@}" && cd "$(cat "${XDG_CACHE_HOME:-${HOME}/.cache/}/fff/.fff_d")" || exit ; }
 s() { du -a "${HOME}" | awk '{ $1="" } { gsub("^ ", "", $0); print "\"" $0 "\"" }' | fzf | sed -e 's/^.//' -e 's/.$//' | open.sh ; }
 rands() { </dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head -c "${1}"; printf '\n' ; }
 rp() { for f in *; do mv "${f}" "$(printf '%s\n' "${f}" | sed "s/${1}/${2}/g")"; done ; }
