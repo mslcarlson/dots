@@ -9,7 +9,7 @@ VCP_CODE=10
 BRIGHTNESS="${XDG_CACHE_HOME:-${HOME}/.cache/}/bar/brightness"
 
 get_brightness() {
-    [ ! -f "${BRIGHTNESS}" ] && return
+    [ ! -f "${BRIGHTNESS}" ] && return 1
     # brightness cache should contain only number
     ! brightness=$(grep '^[0-9][0-9]*$' "${BRIGHTNESS}") && return
 

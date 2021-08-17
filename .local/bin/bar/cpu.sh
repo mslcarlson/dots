@@ -27,12 +27,12 @@ calculate_temp() {
 calculate_usage() {
     # perform math on cpu numbers from /proc/stat to get usage
     printf '%s\n' "$({ cat /proc/stat; sleep "${DELAY}"; cat /proc/stat; } |
-        awk '/^cpu / {usr=$2-usr; sys=$4-sys; idle=$5-idle; iow=$6-iow}
-        END {total=usr+sys+idle+iow; printf "%.0f\n", (total-idle)*100/total}')" > "${USAGE}"
+        awk '/^cpu / { usr=$2-usr; sys=$4-sys; idle=$5-idle; iow=$6-iow }
+        END { total=usr+sys+idle+iow; printf "%.0f\n", (total-idle)*100/total }')" > "${USAGE}"
 }
 
 # top ten intensive processes
-get_procs() { ps -Ao comm,pcpu --sort=-pcpu | head -n 11 | tail -n -10 | sed 's/$/%/' ; }
+get_procs() { ps -eo comm,%cpu | sort -k 2 -n -r | head | tail | sed 's/$/%/' ; }
 
 get_usage() { [ -f "${USAGE}" ] && usage=$(cat "${USAGE}") ; }
 
@@ -60,7 +60,9 @@ main() {
     [ ${#} -eq 0 ] && bar
 
     # bar usage
-    case ${BLOCK_BUTTON} in esac
+    case ${BLOCK_BUTTON} in
+        1) env HERBE_ID=/1 herbe "$(get_procs)" ;;
+    esac
 }
 
 main "${@}"

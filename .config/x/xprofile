@@ -8,4 +8,5 @@ feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
 "${BAR}" &
 xcompmgr &
 mpd &
+unclutter &
 xset r rate 250 50

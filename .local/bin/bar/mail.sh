@@ -54,6 +54,7 @@ main() {
             g) get_mail ;;
             # open mail if o flag used
             o) open     ;;
+            *) return   ;;
         esac
     done
 }

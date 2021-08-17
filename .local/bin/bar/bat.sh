@@ -38,7 +38,7 @@ bar() {
 
 main() {
     # no bat and return
-    [ -d "${BAT}" ] || return
+    [ -d "${BAT}" ] || return 1
 
     # uevent holds battery variables
     [ -f "${BAT}/uevent" ] && . "${BAT}/uevent" 2>/dev/null

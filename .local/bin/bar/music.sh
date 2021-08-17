@@ -37,7 +37,8 @@ main() {
     while getopts 'o' opt; do
         case "${opt}" in
             # open music player if called with o flag
-            o) open ;;
+            o) open   ;;
+            *) return ;;
         esac
     done
 }

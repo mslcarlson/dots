@@ -53,7 +53,7 @@ bar() {
 
 main() {
     # run only if backlight found
-    [ -d "${LIGHT}" ] || return
+    [ -d "${LIGHT}" ] || return 1
 
     # called from bar
     [ ${#} -eq 0 ] && bar

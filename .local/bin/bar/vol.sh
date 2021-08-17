@@ -67,6 +67,7 @@ main() {
         case "${opt}" in
             # toggle if t flag used
             t) toggle && return ;;
+            *) return           ;;
         esac
     done
 
