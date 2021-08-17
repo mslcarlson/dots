@@ -22,6 +22,19 @@ get_interface() {
     interface="${interface##*/}"
 }
 
+get_local_ip() { local_ip="$(ip a | grep -i "\<${1}\>" | awk '{ for (i = 1; i <= NF; i++) { if ($i ~ /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+\/[0-9]*/) { print $i } } }')" ; }
+
+get_ip_addresses() {
+    get_interface 'wifi' && get_local_ip "${interface}"
+    local_wifi_ip="${local_ip:-N/A}"
+
+    get_interface 'eth' && get_local_ip "${interface}"
+    local_eth_ip="${local_ip:-N/A}"
+
+    public_ip="$(curl ifconfig.me/ip)"
+    public_ip="${public_ip:-N/A}"
+}
+
 get_wifi() {
     get_interface 'wifi'
 
@@ -78,7 +91,12 @@ main() {
     [ ${#} -eq 0 ] && bar
 
     # bar usage
-    case ${BLOCK_BUTTON} in 1) open ;; esac
+    case ${BLOCK_BUTTON} in
+        1) open             ;;
+        3) get_ip_addresses
+           herbe "$(printf '%s\n%s\n%s' "Wifi IP: ${local_wifi_ip}" "Eth IP: ${local_eth_ip}" "Public IP: ${public_ip}")"
+           ;;
+    esac
 
     while getopts 'o' opt; do
         case "${opt}" in

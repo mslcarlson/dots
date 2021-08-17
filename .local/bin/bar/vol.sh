@@ -15,7 +15,7 @@ get_scontrol() {
     fi
 }
 
-get_vol() { amixer get "${scontrol}" -M | grep '\[[0-9][0-9]*\%\]' | awk '{ print $5 }' | head -n 1 | tr -d '[:punct:]' ; }
+get_vol() { vol=$(amixer get "${scontrol}" -M | grep '\[[0-9][0-9]*\%\]' | awk '{ print $5 }' | head -n 1 | tr -d '[:punct:]') ; }
 
 toggle() {
     [ "${scontrol}" = 'Master' ] && amixer set "${scontrol}" toggle
@@ -25,12 +25,12 @@ toggle() {
 # set volume linearly
 set_vol() {
     amixer set "${scontrol}" "${2}"%"${1}" -M
-    vol=$(get_vol)
+    get_vol
     env HERBE_ID=/0 herbe "Volume: ${vol}%" &
 }
 
 bar() {
-    vol=$(get_vol)
+    get_vol
 
     # check if muted
     if [ "${scontrol}" = 'Master' ] || [ "${scontrol}" = 'PCM' ]; then

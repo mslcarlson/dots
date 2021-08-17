@@ -140,3 +140,18 @@ st.rows               : 24
 st.mousefg            : 7
 st.mousebg            : 0
 st.defaultattr        : 11
+
+! xmenu
+xmenu.borderWidth    : 3
+xmenu.separatorWidth : 5
+xmenu.height         : 25
+xmenu.width          : 300
+xmenu.gap            : 0
+xmenu.background     : col0
+xmenu.foreground     : col7
+xmenu.selbackground  : col2
+xmenu.selforeground  : col0
+xmenu.separator      : col7
+xmenu.border         : col2
+xmenu.font           : monospace:size=16,Font Awesome 5 Pro Solid:size=16
+xmenu.alignment      : LeftAlignment

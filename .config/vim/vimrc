@@ -183,3 +183,8 @@ noremap <S-Down> :resize -1<CR>
 
 " remove highlight from searched text
 nnoremap <CR> :noh<CR><CR>
+
+" basic compiler
+map <leader>c :w! \| !compile.sh <c-r>%<CR>
+map <leader>o :!compile.sh -o <c-r>%<CR><CR>
+map <leader>x :!compile.sh -c %<CR>

@@ -4,16 +4,16 @@
 
 main() {
 	xmenu << EOF | sh &
-Applications
-	IMG:./icons/web.png	Web Browser	${BROWSER}
-	IMG:./icons/gimp.png	Image editor	gimp
+ Programs
+	 Web Browser	${BROWSER}
+	 Image editor	gimp-2.99
+	 Text Editor	${TERMINAL} -c ${TERMINAL} -e ${EDITOR}
 
-Terminal (xterm)	xterm
-Terminal (urxvt)	urxvt
-Terminal (st)		st
+ Terminal	${TERMINAL}
 
-Shutdown		poweroff
-Reboot			reboot
+ Lock		lock.sh
+ Shutdown	doas shutdown -h now
+ Restart	doas shutdown -r now
 EOF
 }
 

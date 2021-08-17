@@ -32,7 +32,7 @@ calculate_usage() {
 }
 
 # top ten intensive processes
-get_procs() { ps -eo comm,%cpu | sort -k 2 -n -r | head | tail | sed 's/$/%/' ; }
+get_procs() { procs="$(ps -eo comm,%cpu | sort -k 2 -n -r | head | tail | sed 's/$/%/')" ; }
 
 get_usage() { [ -f "${USAGE}" ] && usage=$(cat "${USAGE}") ; }
 
@@ -61,7 +61,9 @@ main() {
 
     # bar usage
     case ${BLOCK_BUTTON} in
-        1) env HERBE_ID=/1 herbe "$(get_procs)" ;;
+        1) get_procs
+           herbe "${procs}"
+           ;;
     esac
 }
 

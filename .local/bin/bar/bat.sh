@@ -12,10 +12,7 @@ BAT_HALF_ICON=''
 BAT_THREE_QUARTERS_ICON=''
 BAT_FULL_ICON=''
 
-get_energy_left() {
-    energy_left="$(printf '%.2f' "$(printf '%s\n' "scale=4; ${POWER_SUPPLY_ENERGY_FULL}/${POWER_SUPPLY_ENERGY_FULL_DESIGN} * 100" | bc)")"
-    env HERBE_ID=/0 herbe "Energy left: ${energy_left}%"
-}
+get_energy_left() { energy_left="$(printf '%.2f' "$(printf '%s\n' "scale=4; ${POWER_SUPPLY_ENERGY_FULL}/${POWER_SUPPLY_ENERGY_FULL_DESIGN} * 100" | bc)")" ; }
 
 bar() {
     # prefix could be charging, warning, or both
@@ -48,7 +45,9 @@ main() {
 
     # bar usage
     case ${BLOCK_BUTTON} in
-        1) get_energy_left ;;
+        1) get_energy_left
+           env HERBE_ID=/0 herbe "Energy left: ${energy_left}%"
+           ;;
     esac
 }
 
