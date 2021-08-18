@@ -8,18 +8,37 @@ PAUSED_ICON=''
 
 open() { "${TERMINAL}" -c "${MUSIC_PLAYER}" -e "${MUSIC_PLAYER}" ; }
 
-bar() {
+get_song_and_state() {
     # get current song name
     song="$(mpc -f %title% | head -n 1)"
     # get state of song
-    stat="$(mpc -f %title% | sed '2q;d' | awk '{ print $1 }' | tr -d '[:punct:]')"
+    state="$(mpc -f %title% | sed '2q;d' | awk '{ print $1 }' | tr -d '[:punct:]')"
+}
+
+toggle() {
+    # pause if playing and play if paused
+    mpc -q toggle
+
+    get_song_and_state
+
+    # convert first letter of state from lowercase to uppercase
+    first_letter="$(printf '%s\n' "${state}" | cut -c 1 | tr '[:lower:]' '[:upper:]')"
+    rest="$(printf '%s\n' "${state}" | cut -c 2-)"
+    state="${first_letter}${rest}"
+
+    env HERBE_ID=/0 herbe "${state} ${song}" &
+}
+
+
+bar() {
+    get_song_and_state
 
     # no songs
-    [ -z "${stat}" ] && printf '%s\n' "${MUSIC_ICON}"
+    [ -z "${state}" ] && printf '%s\n' "${MUSIC_ICON}"
     # song is playing
-    [ "${stat}" = 'playing' ] && printf '%s\n' "${PLAYING_ICON} ${song}"
+    [ "${state}" = 'playing' ] && printf '%s\n' "${PLAYING_ICON} ${song}"
     # paused
-    [ "${stat}" = 'paused' ] && printf '%s\n' "${PAUSED_ICON} ${song}"
+    [ "${state}" = 'paused' ] && printf '%s\n' "${PAUSED_ICON} ${song}"
 }
 
 main() {
@@ -29,15 +48,16 @@ main() {
     # bar usage
     case ${BLOCK_BUTTON} in
         1) open                                             ;;
-        2) mpc -q toggle                                    ;;
+        2) toggle                                           ;;
         4) mpc -q prev                                      ;;
         5) [ -n "$( mpc -f %title% queue)" ] && mpc -q next ;;
     esac
 
-    while getopts 'o' opt; do
+    while getopts 'ot' opt; do
         case "${opt}" in
             # open music player if called with o flag
             o) open   ;;
+            t) toggle ;;
             *) return ;;
         esac
     done

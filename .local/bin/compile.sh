@@ -38,7 +38,7 @@ main() {
 
     # different compile options based on file extension
     case "${ext}" in
-              # GNU compilers
+                # GNU compilers
         'c')    cc "${file}"  -o "${base}" && "${base}"                    ;;
         'cpp')  g++ "${file}" -o "${base}" && "${base}"                    ;;
         'java') javac  "${file}" && java "${file}"                         ;;
