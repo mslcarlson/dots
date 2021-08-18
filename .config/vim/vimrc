@@ -186,5 +186,5 @@ nnoremap <CR> :noh<CR><CR>
 
 " basic compiler
 map <leader>c :w! \| !compile.sh <c-r>%<CR>
-map <leader>o :!compile.sh -o <c-r>%<CR><CR>
-map <leader>x :!compile.sh -c %<CR>
+map <leader>o :w! \| !compile.sh -o <c-r>%<CR><CR>
+map <leader>x :w! \| !compile.sh -c %<CR>

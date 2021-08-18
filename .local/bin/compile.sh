@@ -2,7 +2,7 @@
 #
 # compile
 
-. "${HOME:-/home/${USER}/}/.local/bin/symlink.sh"
+. "${HOME}/.local/bin/symlink.sh"
 
 main() {
     # use POSIX-compliant way to follow symlink
@@ -23,7 +23,12 @@ main() {
     while getopts 'c:o:' opt; do
         case "${opt}" in
             # shell check if called with c flag and shell script
-            c) [ "${OPTARG##*.}" = 'sh' ] && shellcheck -x "${OPTARG}"
+            c) if [ "${OPTARG##*.}" = 'sh' ]; then
+                   if [ -z "$(shellcheck -x "${OPTARG}")" ]; then printf 'No issues detected!'
+                   else shellcheck -x "${OPTARG}"
+                   fi
+               else printf 'Not a shell script.'
+               fi
                return
                ;;
             # open same file name with different extension if called with o flag

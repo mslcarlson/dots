@@ -26,7 +26,7 @@ toggle() {
     rest="$(printf '%s\n' "${state}" | cut -c 2-)"
     state="${first_letter}${rest}"
 
-    env HERBE_ID=/0 herbe "${state} ${song}" &
+    herbe "${state} ${song}" &
 }
 
 
