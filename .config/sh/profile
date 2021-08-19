@@ -15,9 +15,8 @@ export BROWSER='brave'
 export TERMINAL='st'
 export FILE_VIEWER='fff'
 export EDITOR='vim'
-export MUSIC_PLAYER='ncmpcpp'
 export MAIL_CLIENT='neomutt'
-export MEDIA_PLAYER='mpv'
+export MUSIC_PLAYER='ncmpcpp'
 export READER='zathura'
 export IMG_VIEWER='feh'
 
@@ -38,16 +37,8 @@ export YTFZF_CONFIG_FILE="${YTFZF_CONFIG_DIR}/ytfzf.sh"
 export STARDICT_DATA_DIR="${XDG_DATA_HOME:-${HOME}/.local/share/}"
 
 # folders
-export DEV_DIR="${HOME}/dev/"
-export DOWNLOADS_DIR="${HOME}/dl/"
-export DOCUMENTS_DIR="${HOME}/dox/"
 export MAIL_DIR="${HOME}/mail/"
-export MUSIC_DIR="${HOME}/music/"
 export PICTURES_DIR="${HOME}/pix/"
-export VIDEOS_DIR="${HOME}/vids/"
-
-# gpg
-export GNUPG="9CC4E75365C16465FFE752C94DDBF97211D4EA31"
 
 # colorful man pages
 LESS_TERMCAP_mb="$(printf '%b' '\x1b[1;32m')"

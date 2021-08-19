@@ -15,7 +15,7 @@ main() {
       | *.ogg  \
       | *.opus \
       | *.wav)
-            "${MEDIA_PLAYER}" --no-video "${opt}"
+            mpv --no-video "${opt}"
         ;;
 
         # document
@@ -27,7 +27,7 @@ main() {
 
         # gif
         *.gif)
-            "${MEDIA_PLAYER}" --loop "${opt}"
+            mpv --loop "${opt}"
         ;;
 
         # image
@@ -58,7 +58,7 @@ main() {
       | *.mkv \
       | *.mp4 \
       | *.webm)
-            "${MEDIA_PLAYER}" "${opt}"
+            mpv "${opt}"
         ;;
 
         # web/vector

@@ -5,7 +5,7 @@
 xrdb "${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xresources"
 lock.sh &
 feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
-"${BAR}" &
+# "${BAR}" &
 xcompmgr &
 mpd &
 unclutter &
