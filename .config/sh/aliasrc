@@ -69,7 +69,7 @@ alias \
 alias dots='/usr/bin/git --git-dir=${HOME}/.dots/ --work-tree=${HOME}'
 
 # sync mail on mail exit when entered thru cmd line
-alias ${MAIL_CLIENT}='${MAIL_CLIENT}; mail.sh -g &'
+alias ${MAIL_CLIENT}='cd "${DOWNLOADS_DIR}"; ${TERMINAL} -c "${MAIL_CLIENT}" -e "${MAIL_CLIENT}"; mail.sh -g &'
 
 # youtube
 alias \
@@ -78,4 +78,4 @@ alias \
     ytp='youtube-dl -i -o "${DOWNLOADS_DIR}/%(uploader)s/%(playlist_index)s-%(title)s.%(ext)s" --add-metadata' \
     ytpa='ytp -f bestaudio/best -x'                                                                            \
     ytall='yt -cw -f best'                                                                                     \
-    ytw='ytfzf'
+    ytw='${YOUTUBE_CLIENT}'

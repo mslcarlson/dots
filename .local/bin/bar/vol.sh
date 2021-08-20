@@ -29,6 +29,8 @@ set_vol() {
     env HERBE_ID=/0 herbe "Volume: ${vol}%" &
 }
 
+open() { "${TERMINAL}" -c "${MIXER}" -e "${MIXER}" ; }
+
 bar() {
     get_vol
 
@@ -57,14 +59,16 @@ main() {
 
     # bar usage
     case ${BLOCK_BUTTON} in
-        1) "${TERMINAL}" -c 'alsamixer' -e 'alsamixer' ;;
-        2) toggle                                      ;;
-        4) set_vol + 1                                 ;;
-        5) set_vol - 1                                 ;;
+        1) open                                      ;;
+        2) toggle                                    ;;
+        4) set_vol + 1                               ;;
+        5) set_vol - 1                               ;;
     esac
 
-    while getopts 't' opt; do
+    while getopts 'ot' opt; do
         case "${opt}" in
+            # open mixer
+            o) open && return   ;;
             # toggle if t flag used
             t) toggle && return ;;
             *) return           ;;

@@ -18,7 +18,11 @@ export EDITOR='vim'
 export MAIL_CLIENT='neomutt'
 export MUSIC_PLAYER='ncmpcpp'
 export READER='zathura'
+export YOUTUBE_CLIENT='ytfzf'
 export IMG_VIEWER='feh'
+export MIXER='alsamixer'
+export TORRENT_CLIENT='deluge-gtk'
+export IMAGE_EDITOR='gimp-2.99'
 
 # xdg base directories
 export XDG_CONFIG_HOME="${HOME}/.config/"
@@ -39,6 +43,7 @@ export STARDICT_DATA_DIR="${XDG_DATA_HOME:-${HOME}/.local/share/}"
 # folders
 export MAIL_DIR="${HOME}/mail/"
 export PICTURES_DIR="${HOME}/pix/"
+export DOWNLOADS_DIR="${HOME}/dl/"
 
 # colorful man pages
 LESS_TERMCAP_mb="$(printf '%b' '\x1b[1;32m')"

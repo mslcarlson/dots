@@ -128,6 +128,9 @@ main() {
         *)  path="${PWD}/${1}" ;;
     esac
 
+    # handle symlinks
+    path="$("${HOME}/.local/bin/symlink.sh" "${path}")"
+
     # if dir get rand file
     if [ -d "${path}" ]; then
         get_rand_file "${path}" && wp "${file}"
