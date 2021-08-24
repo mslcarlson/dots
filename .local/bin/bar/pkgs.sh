@@ -77,6 +77,9 @@ upgrade_pkgs() {
     case "${os}" in 'arch') upgrade_arch_pkgs ;; esac
 
     rm -f "${UPGRADE_TMP}"
+
+    # update counter immediately after upgrade
+    get_pkgs &
 }
 
 get_pkgs() {

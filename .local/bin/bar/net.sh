@@ -79,7 +79,11 @@ bar() {
     [ -z "${wifi}" ] && [ -z "${eth}" ] && printf '%s\n' "${ERROR_ICON}" && return 1
 
     # space needed between wifi and eth if eth is available
-    if [ -z "${eth}" ]; then printf '%s\n' "${wifi}${eth}"
+    # no eth but wifi
+    if [ -z "${eth}" ]; then printf '%s\n' "${wifi}"
+    # no wifi but eth
+    elif [ -z "${wifi}" ]; then  printf '%s\n' "${eth}"
+    # both wifi and eth
     else printf '%s\n' "${wifi} ${eth}"
     fi
 }

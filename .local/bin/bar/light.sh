@@ -4,7 +4,7 @@
 
 ICON=''
 # intel_backlight for thinkpad at least
-LIGHT='/sys/class/backlight/intel_backlight/'
+LIGHT='/sys/class/backlight/intel_backlight'
 # 852 on thinkpad not sure if universal
 MAX_BRIGHTNESS="$([ -f "${LIGHT}/max_brightness" ] && cat "${LIGHT}/max_brightness")"
 
@@ -40,9 +40,11 @@ set_brightness() {
     [ ${brightness} -gt ${MAX_BRIGHTNESS} ] && brightness=${MAX_BRIGHTNESS}
 
     # send brightness to file for future reading
-    printf '%s\n' ${brightness} > "${LIGHT}/brightness"
+    printf '%s\n' ${brightness} | doas tee "${LIGHT}/brightness" 1>/dev/null
 
-    env HERBE_ID=/0 herbe "Brightness: ${brightness}%"
+    get_brightness
+
+    env HERBE_ID=/0 herbe "Brightness: ${brightness}%" &
 }
 
 bar() {

@@ -3,10 +3,9 @@
 # xprofile
 
 xrdb "${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xresources"
-lock.sh &
+"${HOME}/.local/bin/lock.sh" &
 feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
-xclickroot -r menu.sh &
-# "${BAR}" &
+xclickroot -r "${HOME}/.local/bin/menu.sh" &
 xcompmgr &
 mpd &
 unclutter &

@@ -15,7 +15,7 @@ get_scontrol() {
     fi
 }
 
-get_vol() { vol=$(amixer get "${scontrol}" -M | grep '\[[0-9][0-9]*\%\]' | awk '{ print $5 }' | head -n 1 | tr -d '[:punct:]') ; }
+get_vol() { vol=$(amixer get "${scontrol}" -M | awk '{ for (i = 1; i<=NF; i++) { if ( $i ~ /\[[0-9][0-9]*%\]/ ) { print $i } } }' | head -n 1 | tr -d '[:punct:]') ; }
 
 toggle() {
     [ "${scontrol}" = 'Master' ] && amixer set "${scontrol}" toggle

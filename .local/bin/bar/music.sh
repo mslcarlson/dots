@@ -11,6 +11,7 @@ open() { "${TERMINAL}" -c "${MUSIC_PLAYER}" -e "${MUSIC_PLAYER}" ; }
 get_song_and_state() {
     # get current song name
     song="$(mpc -f %title% | head -n 1)"
+
     # get state of song
     state="$(mpc -f %title% | sed '2q;d' | awk '{ print $1 }' | tr -d '[:punct:]')"
 }
@@ -32,6 +33,12 @@ toggle() {
 
 bar() {
     get_song_and_state
+
+    # print ellipses if song name cuts off in bar
+    if [ "${#song}" -ge 20 ]; then
+        song="$(printf '%.17s' "${song}")"
+        song="${song}..."
+    fi
 
     # no songs
     [ -z "${state}" ] && printf '%s\n' "${MUSIC_ICON}"

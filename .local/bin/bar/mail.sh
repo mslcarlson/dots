@@ -20,7 +20,13 @@ get_mail() {
     rm -f "${TMP}"
 }
 
-open() { cd "${DOWNLOADS_DIR}"; "${TERMINAL}" -c "${MAIL_CLIENT}" -e "${MAIL_CLIENT}" && { get_mail & } ; }
+open() {
+    wd="$(pwd)"
+    cd "${DOWNLOADS_DIR}";
+    "${TERMINAL}" -c "${MAIL_CLIENT}" -e "${MAIL_CLIENT}"
+    cd "${wd}"
+    get_mail &
+}
 
 bar() {
     # count personal and school mail then sum together
