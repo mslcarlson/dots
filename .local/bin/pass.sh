@@ -2,7 +2,9 @@
 #
 # pass
 
+# named pass in order to just werk when switching from popular pass program
 CREDENTIALS_DIR="${XDG_DATA_HOME:-${HOME}/.local/share/}/pass"
+
 NEWLINE='
 '
 
