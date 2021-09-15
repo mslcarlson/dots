@@ -2,6 +2,7 @@
 #
 # xprofile
 
+autorandr -c
 xrdb "${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xresources"
 "${HOME}/.local/bin/lock.sh" &
 feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
