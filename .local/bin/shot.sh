@@ -7,7 +7,7 @@ COLORS="${XDG_CACHE_HOME:-${HOME}/.cache/}/wal/colors.sh"
 main() {
     [ -f "${COLORS}" ] && . "${COLORS}"
 
-    hex="$(printf '%s' "${color4}" | tr '[:lower:]' '[:upper:]' | tr -d '[:punct:]')"
+    hex="$(printf '%s' "${color2}" | tr '[:lower:]' '[:upper:]' | tr -d '[:punct:]')"
 
     a=$(printf '%s' "${hex}" | cut -c 1-2)
     b=$(printf '%s' "${hex}" | cut -c 3-4)
