@@ -21,7 +21,7 @@ main() {
     gf=$(printf '%s\n' "scale=10; ${g}/255" | bc)
     bf=$(printf '%s\n' "scale=10; ${b}/255" | bc)
 
-    scrot -a "$(slop -b 3 -c "${rf}","${gf}","${bf}",1.0 -f '%x,%y,%w,%h')" -q 100 -z -C 'screenshot' "${PICTURES_DIR}/captures/%m-%d-%Y-%I-%M-%S.png"
+    scrot -a "$(slop -b 3 -c "${rf}","${gf}","${bf}",1.0 -f '%x,%y,%w,%h')" -q 100 -z -C 'screenshot' "${PICTURES_DIR}/shots/%m-%d-%Y-%I-%M-%S.png"
 }
 
 main "${@}"
