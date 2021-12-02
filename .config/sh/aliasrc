@@ -29,6 +29,7 @@ if uname -s | grep -i 'linux' >/dev/null 2>&1; then
          ls='ls -ahls --color=auto --group-directories-first' \
          mv='mv -v'                 			              \
          o='open.sh'                                          \
+         paru='paru --sudo doas'                              \
          rmdir='rmdir -pv --ignore-fail-on-non-empty'         \
          vi='vim'                                             \
          vm='qemu-system-x86_64                               \
