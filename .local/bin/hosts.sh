@@ -16,6 +16,7 @@ main() {
     [ -f "${HOSTS_ENABLED_DIR}/hosts" ]  && disable && sleep 1 && return 0
 
     # enable by moving hosts to /etc/
+    # shellcheck disable=SC3044
     [ -f "${HOSTS_DISABLED_DIR}/hosts" ] && enable  && sleep 1 && return 0
 }
 
