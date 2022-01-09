@@ -19,35 +19,35 @@ set recolor-keephue 'false'
 set recolor-reverse-video 'false'
 
 # Command line completion entries
-set completion-fg '#e9e3df'
-set completion-bg '#17100c'
+set completion-fg '#dedede'
+set completion-bg '#000000'
 
 # Command line completion group elements
-set completion-group-fg '#9F6F5C'
-set completion-group-bg '#17100c'
+set completion-group-fg '#7F807F'
+set completion-group-bg '#000000'
 
 # Current command line completion element
-set completion-highlight-fg '#17100c'
-set completion-highlight-bg '#e9e3df'
+set completion-highlight-fg '#000000'
+set completion-highlight-bg '#dedede'
 
 # Default foreground/background color
-set default-bg rgba(23,16,12,0.95)
+set default-bg rgba(0,0,0,0.95)
 
 # Input bar
-set inputbar-fg '#e9e3df'
-set inputbar-bg '#17100c'
+set inputbar-fg '#dedede'
+set inputbar-bg '#000000'
 
 # Notification
-set notification-fg '#e9e3df'
-set notification-bg '#17100c'
+set notification-fg '#dedede'
+set notification-bg '#000000'
 
 # Error notification
-set notification-error-fg '#e9e3df'
-set notification-error-bg '#936521'
+set notification-error-fg '#dedede'
+set notification-error-bg '#6C6D6D'
 
 # Warning notification
-set notification-warning-fg '#e9e3df'
-set notification-warning-bg '#936521'
+set notification-warning-fg '#dedede'
+set notification-warning-bg '#6C6D6D'
 
 # Tab - TODO
 # set tabbar-fg
@@ -58,25 +58,25 @@ set notification-warning-bg '#936521'
 # set tabbar-focus-bg
 
 # Status bar
-set statusbar-fg '#e9e3df'
-set statusbar-bg '#17100c'
+set statusbar-fg '#dedede'
+set statusbar-bg '#000000'
 
 # Highlighting parts of the document (e.g. show search results)
-set highlight-color '#9F6F5C'
-set highlight-active-color '#9F6F5C'
+set highlight-color '#7F807F'
+set highlight-active-color '#7F807F'
 
 # Represent light/dark colors in recoloring mode
 set recolor-lightcolor rgba(0,0,0,0)
-set recolor-darkcolor '#e9e3df'
+set recolor-darkcolor '#dedede'
 
 # 'Loading...' text
-set render-loading-fg '#e9e3df'
-set render-loading-bg '#17100c'
+set render-loading-fg '#dedede'
+set render-loading-bg '#000000'
 
 # Index mode
-set index-fg '#e9e3df'
-set index-bg '#17100c'
+set index-fg '#dedede'
+set index-bg '#000000'
 
 # Selected element in index mode
-set index-active-fg '#17100c'
-set index-active-bg '#e9e3df'
+set index-active-fg '#000000'
+set index-active-bg '#dedede'

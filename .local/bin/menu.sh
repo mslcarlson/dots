@@ -10,7 +10,9 @@ main() {
 	 Text Editor		"${TERMINAL}" -c "${EDITOR}" -e "${EDITOR}"
 	 Music Player		"${HOME}/.local/bin/bar/music.sh" -o
 	 Mail Client		"${HOME}/.local/bin/bar/mail.sh" -o
+	 RSS Feed Reader	"${HOME}/.local/bin/bar/rss.sh" -o
 	 YouTube			"${TERMINAL}" -c "${YOUTUBE_CLIENT}" -e "${YOUTUBE_CLIENT}"
+	 Torrent Client	"${TORRENT_CLIENT}"
 	 Image Editor		"${IMAGE_EDITOR}"
  Tools
 	 Terminal			"${TERMINAL}"

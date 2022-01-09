@@ -6,7 +6,7 @@ ICON=''
 UPGRADE_ICON=''
 UPGRADE_TMP='/tmp/upgrade-pkgs'
 AUR_HELPER='paru'
-PKGS="${XDG_CACHE_HOME:-${HOME}/.cache}/bar/pkgs"
+PKGS="${XDG_CACHE_HOME:-${HOME}/.cache}/dots/bar/pkgs"
 GET_TMP='/tmp/get-pkgs'
 GET_ICON=''
 

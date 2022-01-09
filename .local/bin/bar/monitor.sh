@@ -6,7 +6,7 @@ ICON=''
 # brightness vcp code is 10
 VCP_CODE=10
 # cache used b/c ddcutil getvcp too expensive
-BRIGHTNESS="${XDG_CACHE_HOME:-${HOME}/.cache/}/bar/brightness"
+BRIGHTNESS="${XDG_CACHE_HOME:-${HOME}/.cache/}/dots/bar/brightness"
 
 get_brightness() {
     [ ! -f "${BRIGHTNESS}" ] && return 1
