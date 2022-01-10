@@ -39,7 +39,7 @@ set_brightness() {
     env HERBE_ID=/0 herbe "Brightness: ${brightness}%" &
 
     # get actual brightness and send output to cache
-    printf '%s\n' "$(doas ddcutil getvcp ${VCP_CODE} | awk '{ print $9 }' | tr -d '[:punct:]')" 2>/dev/null > "${BRIGHTNESS}"
+    printf '%s\n' "$(doas ddcutil getvcp ${VCP_CODE} | awk '{ print $9 }' | tr -d '[:punct:]' 2>/dev/null)" > "${BRIGHTNESS}"
 }
 
 bar() {
