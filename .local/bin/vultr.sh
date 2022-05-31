@@ -27,7 +27,7 @@ set -- ${snapshot_ids}
 oldest_snapshot_id="${1}"
 
 # Vultr only allows eleven(?) snapshots at this moment
-SNAPSHOT_LIMIT=11
+SNAPSHOT_LIMIT=1
 snapshot_count=$(printf '%s\n' "${snapshot_ids}" | wc -w)
 
 main() {

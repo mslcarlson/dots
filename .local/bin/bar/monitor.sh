@@ -53,13 +53,13 @@ main() {
 
     # bar usage
     case ${BLOCK_BUTTON} in
-        4) set_brightness + 25 ;;
-        5) set_brightness - 25 ;;
+        4) set_brightness + 25 & ;;
+        5) set_brightness - 25 & ;;
     esac
 
     # modify monitor brightness based on args
     # ${1} = +/- and ${2} = percentage
-    [ "${*}" ] && set_brightness "${1}" "${2}"
+    [ "${*}" ] && set_brightness "${1}" "${2}" &
 }
 
 main "${@}"

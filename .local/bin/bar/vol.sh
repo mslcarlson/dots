@@ -9,17 +9,18 @@ VOLUME_OFF_ICON=''
 VOLUME_MUTED_ICON=''
 
 get_scontrol() {
-    # Prefer Master but use PCM if not available
-    if amixer scontrols | grep -iq 'Master'; then scontrol='Master'
-    elif amixer scontrols | grep -iq 'PCM'; then scontrol='PCM'
-    fi
+    # use PCM, which affects audio data played by software
+    amixer scontrols | grep -iq 'PCM' && scontrol='PCM'
 }
 
 get_vol() { vol=$(amixer get "${scontrol}" -M | awk '{ for (i = 1; i<=NF; i++) { if ( $i ~ /\[[0-9][0-9]*%\]/ ) { print $i } } }' | head -n 1 | tr -d '[:punct:]') ; }
 
 toggle() {
-    [ "${scontrol}" = 'Master' ] && amixer set "${scontrol}" toggle
-    [ "${scontrol}" = 'PCM' ] && amixer set 'IEC958,5' toggle
+    amixer set 'Master' toggle
+
+    is_muted && msg='Volume muted' || msg='Volume unmuted'
+
+    env HERBE_ID=/0 herbe "${msg}" &
 }
 
 # set volume linearly
@@ -29,18 +30,21 @@ set_vol() {
     env HERBE_ID=/0 herbe "Volume: ${vol}%" &
 }
 
+is_muted() {
+    if amixer get 'Master' | sed 5q | grep -iq '\[off\]'; then
+        return 0
+    fi
+
+    return 1
+}
+
 open() { "${TERMINAL}" -c "${MIXER}" -e "${MIXER}" ; }
 
 bar() {
     get_vol
 
     # check if muted
-    if [ "${scontrol}" = 'Master' ] || [ "${scontrol}" = 'PCM' ]; then
-        if amixer get "${scontrol}" | sed 5q | grep -iq '\[off\]' || \
-           amixer get 'IEC958,5' | sed 4q | grep -iq '\[off\]'; then
-            printf '%s\n' "${VOLUME_MUTED_ICON} ${vol}%" && return
-        fi
-    fi
+    is_muted && printf '%s\n' "${VOLUME_MUTED_ICON} ${vol}%" && return
 
     # volume 0 is off, 1-33 is low, 34-66 is med, 67-100 is high
     case ${vol} in
@@ -59,10 +63,10 @@ main() {
 
     # bar usage
     case ${BLOCK_BUTTON} in
-        1) open                                      ;;
-        2) toggle                                    ;;
-        4) set_vol + 1                               ;;
-        5) set_vol - 1                               ;;
+        1) open        ;;
+        2) toggle      ;;
+        4) set_vol + 1 ;;
+        5) set_vol - 1 ;;
     esac
 
     while getopts 'ot' opt; do

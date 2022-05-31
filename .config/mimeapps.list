@@ -4,6 +4,7 @@
 application/epub+zip=doc.desktop
 application/json=txt.desktop
 application/pdf=doc.desktop
+application/x.bittorrent=torr.desktop
 application/x-tex=txt.desktop
 
 # audio
@@ -53,3 +54,6 @@ video/mp4=vid.desktop
 video/webm=vid.desktop
 video/x-matroska=vid.desktop
 video/x-msvideo=vid.desktop
+
+# url handler for magnet links
+x-scheme-handler/magnet=torr.desktop

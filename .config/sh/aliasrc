@@ -92,9 +92,11 @@ alias ${MAIL_CLIENT}='"${HOME}/.local/bin/bar/mail.sh" -o'
 #       all programs that rely on youtube-dl should work
 #       https://github.com/yt-dlp/yt-dlp
 alias \
-    yt='youtube-dl -i -o "${DOWNLOADS_DIR}/%(uploader)s/%(title)s.%(ext)s" --add-metadata'                     \
-    yta='yt -f bestaudio/best -x'                                                                              \
-    ytp='youtube-dl -i -o "${DOWNLOADS_DIR}/%(uploader)s/%(playlist_index)s-%(title)s.%(ext)s" --add-metadata' \
-    ytpa='ytp -f bestaudio/best -x'                                                                            \
-    ytall='yt -cw -f best'                                                                                     \
+    yt='youtube-dl -i -o "${DOWNLOADS_DIR}/%(uploader)s/%(title)s.%(ext)s" --add-metadata'                                                                    \
+    yta='yt -f bestaudio/best -x'                                                                                                                             \
+    yts='youtube-dl --sub-lang en --write-sub --convert-subs=srt --skip-download'                                                                             \
+    ytp='youtube-dl -i -o "${DOWNLOADS_DIR}/%(uploader)s/%(playlist_index)s-%(title)s.%(ext)s" --add-metadata'                                                \
+    ytpa='ytp -f bestaudio/best -x'                                                                                                                           \
+    ytps='youtube-dl --sub-lang en --write-sub --convert-subs=srt --skip-download -i -o "${DOWNLOADS_DIR}/%(uploader)s/%(playlist_index)s-%(title)s.%(ext)s"' \
+    ytall='yt -cw -f best'                                                                                                                                    \
     ytw='${YOUTUBE_CLIENT}'

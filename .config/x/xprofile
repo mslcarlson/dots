@@ -9,5 +9,6 @@ xrdb "${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xresources"
 feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
 xclickroot -r "${HOME}/.local/bin/menu.sh" &
 mpd &
+transmission-daemon &
 unclutter &
 xset m 0 0 r rate 250 50 s noblank

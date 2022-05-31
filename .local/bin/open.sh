@@ -70,6 +70,11 @@ main() {
             "${BROWSER}" "${opt}"
         ;;
 
+        # torrent
+        *.torrent)
+            "${HOME}/.local/bin/bar/torr.sh" -a "${opt}"
+        ;;
+
         # everything else
         *)
             exec "${EDITOR:-vi}" "${opt}" </dev/tty

@@ -1,20 +1,20 @@
 ! colors
-#define col0 #17100c
-#define col1 #936521
-#define col2 #9f6f5c
-#define col3 #bd904a
-#define col4 #a67e81
-#define col5 #c8b3b1
-#define col6 #d5caca
-#define col7 #e9e3df
-#define col8 #a39e9c
-#define col9 #936521
-#define col10 #9f6f5c
-#define col11 #bd904a
-#define col12 #a67e81
-#define col13 #c8b3b1
-#define col14 #d5caca
-#define col15 #e9e3df
+#define col0 #090c09
+#define col1 #636655
+#define col2 #8a6938
+#define col3 #8a7657
+#define col4 #76857d
+#define col5 #988f6e
+#define col6 #c2ac5e
+#define col7 #c7c7bf
+#define col8 #8b8b85
+#define col9 #636655
+#define col10 #8a6938
+#define col11 #8a7657
+#define col12 #76857d
+#define col13 #988f6e
+#define col14 #c2ac5e
+#define col15 #c7c7bf
 
 ! font
 Xft.antialias : 1

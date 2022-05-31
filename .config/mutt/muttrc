@@ -38,7 +38,7 @@ bind index,pager \Co sidebar-open
 color attachment        bold color2  default
 color body              bold color2  default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"
 color body              bold color2  default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"
-color error             bold color1  default
+color error             bold color6  default
 color hdrdefault        bold color2  default
 color index             bold default default '~N'
 color index_author      bold default default '~N'
@@ -55,7 +55,7 @@ color quoted2                color4  default
 color quoted3                color5  default
 color quoted4                color6  default
 color sidebar_divider        color7  default
-color sidebar_highlight bold color3  default
+color sidebar_highlight bold color2  default
 color status            bold color0  color2
 color tilde                  color0  default
 

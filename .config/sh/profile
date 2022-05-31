@@ -21,7 +21,9 @@ export READER='zathura'
 export YOUTUBE_CLIENT='ytfzf'
 export IMG_VIEWER='feh'
 export MIXER='alsamixer'
+export TORRENT_CLIENT='tremc'
 export IMAGE_EDITOR='gimp-2.99'
+export RSS_READER='newsboat'
 
 # xdg base directories
 export XDG_CONFIG_HOME="${HOME}/.config/"

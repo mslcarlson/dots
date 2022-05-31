@@ -1,0 +1,2 @@
+[Desktop Entry]
+Exec=/home/mc/.local/bin/bar/torr.sh -a %U

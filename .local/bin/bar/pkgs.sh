@@ -144,7 +144,7 @@ bar() {
 }
 
 open() {
-    ${TERMINAL} -c "${TERMINAL}" -e pkgs.sh upgrade_pkgs
+    "${TERMINAL}" -c "${TERMINAL}" -e pkgs.sh upgrade_pkgs
     get_pkgs &
 }
 

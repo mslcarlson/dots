@@ -1,0 +1,83 @@
+# bindings
+unbind-key -a
+bind-key ENTER open
+bind-key q     quit
+bind-key r     reload
+bind-key R     reload-all
+bind-key A     mark-feed-read
+bind-key l     next
+bind-key RIGHT next
+bind-key h     prev
+bind-key LEFT  prev
+bind-key o     open-in-browser
+bind-key ?     help
+bind-key u     show-urls
+bind-key /     open-search
+bind-key :     cmdline
+bind-key 1     cmd-one
+bind-key 2     cmd-two
+bind-key 3     cmd-three
+bind-key 4     cmd-four
+bind-key 5     cmd-five
+bind-key 6     cmd-six
+bind-key 7     cmd-seven
+bind-key 8     cmd-eight
+bind-key 9     cmd-nine
+bind-key k     up
+bind-key UP    up
+bind-key j     down
+bind-key DOWN  down
+bind-key m     macro-prefix
+
+# colors
+color background          default default
+color listnormal          white   default
+color listfocus           green   default bold
+color listnormal_unread   white   default bold
+color listfocus_unread    green   default bold
+color title               black   green   bold
+color info                black   green   bold
+color hint-key            black   green   bold
+color hint-keys-delimiter black   green   bold
+color hint-separator      black   green   bold
+color hint-description    black   green   bold
+color article             default default
+
+# misc
+always-display-description  yes
+articlelist-format          "%-3i %f%D %t"
+articlelist-title-format    "%N %V - %T"
+browser                     "links.sh %u"
+confirm-delete-all-articles no
+confirm-mark-all-feeds-read no
+confirm-mark-feed-read      no
+datetime-format             "%Y-%m-%d"
+display-article-progress    no
+download-retries            10
+download-timeout            60
+# feed-sort-order             firsttag
+feedlist-format             "%?T?┃ %-3i %n %t %u&┣━ %t %>━?"
+feedlist-title-format       "%N %V - Feeds"
+goto-next-feed              no
+highlight                   article "^(Feed|Title|Author|Date|Link(s)?):.*$" green default bold
+highlight                   article "^\[[0-9]+\]:\ .*\ [(].+[)]$" green default bold
+highlight                   article "(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+" green default bold
+highlight                   article "((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)" green default bold
+highlight                   article "\\[[0-9]+\\]" green default bold
+highlight                   article "\\[image [0-9]+ \\(link #[0-9]+\\)\\]" green default bold
+highlight                   articlelist "^[0-9]+\ +(N|D)?\ +" green default bold
+highlight                   feedlist "\ *[0-9]+\ +N?\ +" green default bold
+highlight                   feedlist "[(][0-9]*\/[0-9]*[)]" green default bold
+highlight                   feedlist "┃" green default bold
+highlight                   feedlist "┣.*" green default bold
+history-limit               0
+itemview-title-format       "%N %V - %T"
+refresh-on-startup          yes
+reload-threads              100
+reload-time                 0
+save-path                   "~/dl"
+searchresult-title-format   "%N %V - Search"
+search-highlight-colors     green default bold
+show-keymap-hint            no
+wrap-scroll                 yes
+highlight articlelist       "[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])" green default bold
