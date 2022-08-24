@@ -105,6 +105,12 @@ theme() {
     # reload xresources
     xrdb "${XRESOURCES}"
 
+    # firefox; python-pywalfox and firefox plugin are required
+    # palette and theme templates have to be set up in firefox itself
+    # see https://github.com/frewacom/pywalfox
+    pywalfox dark
+    pywalfox update
+
     # reload all instances of term
     kill -s USR1 $(ps -ef | grep -i "\<${TERMINAL}\>" | grep -v '\<grep\>' | awk '{ printf "%s ", $2 }')
 

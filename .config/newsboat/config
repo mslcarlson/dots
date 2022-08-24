@@ -59,7 +59,7 @@ download-timeout            60
 feedlist-format             "%?T?┃ %-3i %n %t %u&┣━ %t %>━?"
 feedlist-title-format       "%N %V - Feeds"
 goto-next-feed              no
-highlight                   article "^(Feed|Title|Author|Date|Link(s)?):.*$" green default bold
+highlight                   article "^(Feed|Title|Author|Date|Podcast Download Url|Link(s)?):.*$" green default bold
 highlight                   article "^\[[0-9]+\]:\ .*\ [(].+[)]$" green default bold
 highlight                   article "(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+" green default bold
 highlight                   article "((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)" green default bold

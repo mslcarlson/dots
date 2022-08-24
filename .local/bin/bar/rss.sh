@@ -5,27 +5,31 @@
 ICON=''
 GET_ICON=''
 TMP='/tmp/get-rss'
+RSS="${XDG_CACHE_HOME:-${HOME}/.cache/}/dots/bar/rss"
 
 bar() {
     # is reloading
-    [ -f "${TMP}" ] && cat "${TMP}" && return
+    [ -f "${TMP}" ] && cat "${TMP}" && exit 0
 
     # a decent way of finding out if prog is open without pgrep
     # TODO: implement this in other scripts where ps -ef is used
     if ps -ef | grep "${RSS_READER}" | tr -s ' ' | cut -f8- -d ' ' | grep -qx "${RSS_READER}"; then
         printf '%s\n' "${ICON}"
     else
+        # print cache if newsboat is reloading
+        newsboat -x print-unread >/dev/null
+        [ "${?}" -eq 1 ] && printf '%s\n' "${ICON} $(grep '^[0-9][0-9]*$' "${RSS}")" && exit 0
+
         # print unread articles
         unread="$(newsboat -x print-unread | awk '{print $1}')"
+        printf '%s\n' "${unread}" > "${RSS}"
         printf '%s\n' "${ICON} ${unread}"
     fi
 }
 
 get_rss() {
     printf '%s\n' "${GET_ICON}" > "${TMP}"
-    newsboat -x reload
-    # delay to ensure reload icon always shows
-    sleep 1
+    newsboat -x reload >/dev/null
     rm -f "${TMP}"
 }
 
