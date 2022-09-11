@@ -29,8 +29,7 @@ main() {
         site="$(printf '%s\n' "${sites}" | dmenu -c -l 10)"
         [ -z "${site}" ] && break
         if ! printf '%s\n' "${sites}" | grep -iqx "${site}"; then
-            unset sites
-            continue
+            unset sites && continue
         fi
 
         credentials="$(gpg -dq "${CREDENTIALS_DIR}"/"${site}".gpg)"
@@ -56,10 +55,9 @@ main() {
         done
         printf '%s\n' "${credential_options}" ))"
 
-        if ! credential_option="$(printf '%s\n' "${credential_options}" | dmenu -c -l 10 -p 'Credentials')"; then
-            unset sites
-            unset credential_options
-            continue
+        if { ! credential_option="$(printf '%s\n' "${credential_options}" | dmenu -c -l 10 -p 'Credentials')" ; } ||
+           { ! printf '%s\n' "${credential_options}" | grep -iqx "${credential_option}" ; }; then
+            unset sites credential_options && continue
         fi
 
         if printf '%s\n' "${credential_option}" | grep -q '\<[0-9]\>'; then num="$(printf '%s\n' "${credential_option}" | awk '{ print $3 }')" ; fi
