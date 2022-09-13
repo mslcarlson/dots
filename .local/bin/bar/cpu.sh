@@ -12,8 +12,15 @@ TEMP_FULL_ICON=''
 # approx delay with top alternative
 DELAY=3.15
 
-# differs on machine
-TEMP="$(ls /sys/class/thermal/thermal_zone2*/temp)"
+# thermal zone for temp differs on machine
+hostname='/etc/hostname'
+if [ -f "${hostname}" ]; then
+    if [ "$(cat "${hostname}")" = 'laptop' ]; then
+        TEMP="$(ls /sys/class/thermal/thermal_zone2*/temp)"
+    elif [ "$(cat "${hostname}")" = 'pc' ]; then
+        TEMP="$(ls /sys/class/thermal/thermal_zone0*/temp)"
+    fi
+fi
 
 # cache used b/c awk and delay is time expensive
 USAGE="${XDG_CACHE_HOME:-${HOME}/.cache/}/dots/bar/usage"
