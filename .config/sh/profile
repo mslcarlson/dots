@@ -85,13 +85,15 @@ export FFF_LS_COLORS=1
 export FFF_OPENER="${HOME}/.local/bin/open.sh"
 export FFF_STAT_CMD="stat"
 
-# pfetch
+# device specific
 hostname='/etc/hostname'
 if [ -f "${hostname}" ]; then
     if [ "$(cat "${hostname}")" = 'laptop' ]; then
         export HOSTNAME='laptop'
+        export MONITOR='DP3-2'
     elif [ "$(cat "${hostname}")" = 'pc' ]; then
         export HOSTNAME='pc'
+        export MONITOR='DisplayPort-1'
     fi
 fi
 export PF_INFO='ascii title os host kernel uptime pkgs memory shell editor wm palette'
