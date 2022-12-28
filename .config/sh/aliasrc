@@ -41,7 +41,6 @@ if uname -s | grep -i 'linux' >/dev/null 2>&1; then
              -net nic                                         \
              -net user,hostfwd=tcp::10022-:22                 \
              -smp $(nproc)                                    \
-             -soundhw all                                     \
              -usb                                             \
              -vga std'
 
