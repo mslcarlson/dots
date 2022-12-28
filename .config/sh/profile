@@ -93,7 +93,7 @@ if [ -f "${hostname}" ]; then
         export MONITOR='DP3-2'
     elif [ "$(cat "${hostname}")" = 'pc' ]; then
         export HOSTNAME='pc'
-        export MONITOR='DisplayPort-1'
+        export MONITOR='DP-2'
     fi
 fi
 export PF_INFO='ascii title os host kernel uptime pkgs memory shell editor wm palette'
