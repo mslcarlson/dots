@@ -1,7 +1,7 @@
 [user]
     name       = Matthew Carlson
 	email      = matt@mattcarlson.org
-    signingkey = 9CC4E75365C16465FFE752C94DDBF97211D4EA31
+    signingkey = F550EED0A4B50300F670F18D24B7BABBDA2BC739
 [commit]
     gpgsign    = true
 [filter "gitignore"]
