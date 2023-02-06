@@ -8,7 +8,7 @@ COLOR="${XDG_CACHE_HOME:-${HOME}/.cache/}/dots/color"
 COMPOSITOR='picom'
 
 # we can make windows mono via shader
-SHADER='uniform sampler2D tex; uniform float opacity; void main() { vec4 c = texture2D(tex, gl_TexCoord[0].xy); float y = dot(c.rgb, vec3(0.2126, 0.7152, 0.0722)); gl_FragColor = opacity*vec4(y, y, y, c.a); }'
+SHADER="${XDG_DATA_HOME:-${HOME}/.local/share/}/picom/gray.glsl"
 
 start() {
     # get mode stored in cache
@@ -18,13 +18,13 @@ start() {
 
     # start compositor
     [ "${mode}" -eq 1 ] && ${COMPOSITOR} -b \
-                        || ${COMPOSITOR} -b --backend glx --glx-fshader-win "${SHADER}" 2>/dev/null
+                        || ${COMPOSITOR} -b --backend glx --window-shader-fg="${SHADER}" 2>/dev/null
 }
 
 toggle() {
     # check shader status and thus check mode
     #shellcheck disable=SC2009
-    shader_id=$(ps -ef | grep 'glx-fshader-win' | grep -iv '\<grep\>' | awk '{ printf "%s ", $2 }')
+    shader_id=$(ps -ef | grep 'window-shader-fg' | grep -iv '\<grep\>' | awk '{ printf "%s ", $2 }')
 
     # shader enabled, meaning mono
     # ENABLE COLOR
@@ -40,7 +40,7 @@ toggle() {
         #shellcheck disable=SC2086
         $(kill ${comp_id}                                                        && \
         sleep 1                                                                  && \
-        ${COMPOSITOR} -b --backend glx --glx-fshader-win "${SHADER}" 2>/dev/null) || return 1
+        ${COMPOSITOR} -b --backend glx --window-shader-fg="${SHADER}" 2>/dev/null) || return 1
         mode=0
     fi
 
