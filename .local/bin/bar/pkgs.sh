@@ -102,7 +102,7 @@ get_pkgs() {
                 # -Sy simply syncs the databases
                 doas pacman -Sy >/dev/null 2>&1
                 # -Qu will print out the actual upgrades
-                pacman_pkgs="$(pacman -Qu 2>/dev/null)"
+                pacman_pkgs="$(pacman -Qu 2>/dev/null | grep -v '^.*\[ignored\]$')"
                 if command -v "${AUR_HELPER}" >/dev/null; then
                     # print just AUR upgrades with AUR helper
                     aur_pkgs="$("${AUR_HELPER}" -Qum --devel 2>/dev/null)"
