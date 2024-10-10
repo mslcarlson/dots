@@ -17,7 +17,7 @@ start() {
     mode=$(cat "${COLOR}")
 
     # start compositor
-    [ "${mode}" -eq 1 ] && ${COMPOSITOR} -b \
+    [ "${mode}" -eq 1 ] && ${COMPOSITOR} -b --backend glx \
                         || ${COMPOSITOR} -b --backend glx --window-shader-fg="${SHADER}" 2>/dev/null
 }
 
@@ -32,7 +32,7 @@ toggle() {
         #shellcheck disable=SC2086
         $(kill ${shader_id} && \
         sleep 1             && \
-        ${COMPOSITOR} -b) || return 1
+        ${COMPOSITOR} -b --backend glx) || return 1
         mode=1
     # shader disabled, meaning color
     # DISABLE COLOR
