@@ -19,3 +19,6 @@ allow_empty_search_hist=0
 
 # fzf default opts
 FZF_DEFAULT_OPTS='--color fg:7,preview-fg:2,hl:2,fg+:0,bg+:2,gutter:2,hl+:7,info:2,border:2,prompt:2,pointer:2,marker:2,spinner:2,header:2'
+
+# invidious instance
+invidious_instance="https://nyc1.iv.ggtyler.dev"
